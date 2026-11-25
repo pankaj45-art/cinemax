@@ -1,0 +1,304 @@
+CINEMAX SMOOTH PLAYBACK BETA — RECORDED TEST OUTPUT
+Final standalone SHA-256: 856a06179d6a6fb60d1ab42ee134e2e4373babcdab31ae56819e0dcafd33e96c
+All tests below used Linux/simulated devices, not a physical Windows PC or headphones.
+No test establishes that the reported crackling is cured. Short monitor captures and
+unresolved baseline timing anomalies are described in SMOOTH-PLAYBACK-REPORT.md.
+
+========== Synthetic engine, previous-core comparison, and Linux launcher servers ==========
+PASS: silence, finite stereo output, 60 Hz partial THD 0.0048%, protected hot A/B peak 0.7245.
+Synthetic smoke test only; not a listening or certified peak test.
+Registered: cinemax | 600 initial blocks | peak sample: 0.6615 | hot dry peak: 0.7245
+PASS: actual app wrapper, ready/meters/watchdog, params, calibration, aligned protected A/B and silence (simulated worklet).
+PASS silence remains exactly silent at 44100 Hz, mode 0
+PASS silence remains exactly silent at 44100 Hz, mode 1
+PASS silence remains exactly silent at 44100 Hz, mode 2
+PASS silence remains exactly silent at 48000 Hz, mode 0
+PASS silence remains exactly silent at 48000 Hz, mode 1
+PASS silence remains exactly silent at 48000 Hz, mode 2
+PASS silence remains exactly silent at 96000 Hz, mode 0
+PASS silence remains exactly silent at 96000 Hz, mode 1
+PASS silence remains exactly silent at 96000 Hz, mode 2
+PASS 60 Hz steady-tone generated harmonics below 0.1% — new 0.0061%, legacy 6.005%
+PASS 20 Hz source preserved without an aggressive low cut — 0.29 dB after settling
+PASS 25 Hz source preserved without an aggressive low cut — 0.34 dB after settling
+PASS 35 Hz source preserved without an aggressive low cut — 0.41 dB after settling
+PASS 60 Hz source preserved without an aggressive low cut — 0.53 dB after settling
+PASS 100 Hz source preserved without an aggressive low cut — 0.79 dB after settling
+PASS 200 Hz source preserved without an aggressive low cut — 0.52 dB after settling
+PASS 500 Hz source preserved without an aggressive low cut — 0.10 dB after settling
+PASS 1000 Hz source preserved without an aggressive low cut — 0.09 dB after settling
+PASS punch responds to a real low-frequency transient — impact RMS ratio 1.137
+PASS impact tail decays to near silence — -164.5 dBFS RMS, 0.38 s after source ends
+PASS initial bypass is exact and latency aligned when the limiter is idle — delay 296 samples; max error 0.00e+0
+PASS bypass keeps peak limiting active on a hot source — dry-path sample peak 0.724479
+PASS live A/B transition is crossfaded without a large discontinuity — largest 997 Hz sample step 0.0105
+PASS hot repeated A/B transitions stay finite and below full scale at 44100 Hz — sample peak 0.724437, clamped samples 0, max step 0.1028
+PASS hot repeated A/B transitions stay finite and below full scale at 48000 Hz — sample peak 0.724443, clamped samples 0, max step 0.0945
+PASS hot repeated A/B transitions stay finite and below full scale at 96000 Hz — sample peak 0.724439, clamped samples 0, max step 0.0473
+PASS mono input stays mono with spatial effects
+PASS L/R swap symmetry is preserved
+PASS width and diffusion cancel in the mono sum at moderate level
+PASS typed-array calibration is accepted
+PASS extreme-parameter output is finite and sample bounded at 44100 Hz — sample peak 0.538303, hard-clamped samples 0
+INFO 44100 Hz Node render 0.697 s for 4 s of audio (5.7× real time; not a Windows benchmark)
+PASS extreme-parameter output is finite and sample bounded at 48000 Hz — sample peak 0.538405, hard-clamped samples 0
+INFO 48000 Hz Node render 0.736 s for 4 s of audio (5.4× real time; not a Windows benchmark)
+PASS extreme-parameter output is finite and sample bounded at 96000 Hz — sample peak 0.533173, hard-clamped samples 0
+INFO 96000 Hz Node render 1.453 s for 4 s of audio (2.8× real time; not a Windows benchmark)
+
+33 synthetic checks passed. No physical headphones or listening involved.
+PASS 44100 Hz default: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 44100 Hz original-hot: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 44100 Hz wide: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 44100 Hz static-calibration: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 48000 Hz default: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 48000 Hz original-hot: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 48000 Hz wide: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 48000 Hz static-calibration: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 96000 Hz default: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 96000 Hz original-hot: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 96000 Hz wide: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 96000 Hz static-calibration: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 192000 Hz default: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 192000 Hz original-hot: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 192000 Hz wide: max difference 0.00e+0, relative RMS 0.00e+0
+PASS 192000 Hz static-calibration: max difference 0.00e+0, relative RMS 0.00e+0
+16 optimized-vs-previous DSP equivalence checks passed.
+PASS live calibration on/off: finite, peak 0.1691, max sample step 0.0221
+PASS: Python loopback server serves the packaged app and both WAVs; occupied-port startup is refused.
+PASS: Node loopback server serves the packaged app and both WAVs; occupied-port startup is refused.
+The Windows .bat and browser capture remain untested on a real Windows device.
+
+========== Simulated UI ==========
+CINEMAX UI smoke test — CINEMAX.html
+
+  PASS  page boots without uncaught errors
+  PASS  engine loaded (CinemaxCore present)
+  PASS  all 4 source tiles rendered
+  PASS  status line initialised   [Ready. Choose a source, then connect. (S]
+  PASS  boot controls match conservative headphone, stereo, no-ambience settings
+  PASS  engine processes audio inside the page   [out=-0.227]
+  PASS  source tile selects
+  PASS  connect reaches the audio graph   [Connected. ScriptProcessor (1024-frame blocks, fallback]
+  PASS  now-playing label updated   [Demo scene → Over-ear headphones]
+  PASS  worklet fallback (ScriptProcessor) mounted   [createScriptProcessor x1]
+  PASS  session info populated   [Engine: ScriptProcessor (1024-frame blocks, fallback)File/de]
+  PASS  bass slider is live   [50% -> 90%]
+  PASS  theatre preset applies to every slider and is the bass-heaviest mode   [bass by preset: cinemawoofer=65 musicwoofer=65 cinema=55 imax=62 dolby=50 theatre=75 concert=42 studio=35 musicbass=68 vocal=20 night=35 neutral=0]
+  PASS  theatre preset does not add automatic output gain   [theatre gain=0 dB vs neutral 0]
+  PASS  all presets present: 2 woofer modes + 9 cinema/music modes + neutral   [cinemawoofer,musicwoofer,cinema,imax,dolby,theatre,concert,studio,musicbass,vocal,night,neutral]
+  PASS  woofer panel has all six controls   [woofer=true depth=true w-punch=true w-sub=true w-surround=true w-dialogue=true]
+  PASS  woofer panel is two-way: moving a mirror moves the engine parameter   [param=0.88 main=88 mirror-label=88%]
+  PASS  and the other way: the main slider moves the mirror   [mirror=30]
+  PASS  one-click reset puts every woofer control back   [0.5 / 0.5 / 0.45 / 0.35]
+  PASS  profile suggestions remain conservative across devices   [phone=35/45/10 laptop=40/45/10 headphone=50/50/15 hifi=45/50/10]
+  PASS  Cinema Woofer preset provides restrained bass and dialogue   [woofer=0.75 bass=0.65 dialogue=0.55]
+  PASS  Music Woofer preset is restrained bass+punch in stereo   [woofer=0.72 punch=0.7 dialogue=0.2]
+  PASS  C · Dolby-inspired carries the widest surround and engages virtual 6.1   [widest=dolby (45) spatial=20 mode=2]
+  PASS  F · Music Studio is a different config (low bass, stereo, no reverb)   [bass=35 mode=0 amb=0]
+  PASS  I · Night Cinema favors dialogue and compression without a large bass boost   [lowvol=10 dialogue=65]
+  PASS  NL quiet-volume request changes tilt but not output trim and keeps mirrors synced   [lowvol=20 gain=0]
+  PASS  NL "dolby immersive" selects the Dolby-inspired mode   [Applied: C · Dolby-inspired No matching change was needed, s]
+  PASS  unrecognised request changes nothing and says so   [Applied to your current settings No matching change was need]
+  PASS  late-night toggle latches
+  PASS  A/B bypass latches   [A/B: original + limiter]
+  PASS  space on the buffer selector remains available to the selector
+  PASS  space on the page still toggles A/B
+  PASS  device profile changes the engine + reality note   [Over-ear headphones. Response depends on your headphone]
+  PASS  visualiser loop runs
+  PASS  disconnect cleans up
+  PASS  every audio chain node is registered for teardown
+  PASS  exactly one place connects to the speakers   [found 1]
+  PASS  the attach function is used by both entry points
+  PASS  teardown zeroes the destination-writer count
+  PASS  new connection tears down the old graph and rejects stale attaches
+  PASS  exactly ONE input to the live processor after each of four rebuilds   [inputs per rebuild=1,1,1,1]
+  PASS  exactly ONE speaker writer after four rebuilds   [counter=1]
+  PASS  disconnect leaves no live audio edges   [edges before=6 after=0]
+  PASS  connect works after disconnect   [Connected. ScriptProcessor (1024-frame blocks, fal]
+  PASS  a pending rebuild cannot reconnect after a disconnect   [live edges after rebuild+disconnect race: 0]
+  PASS  loading a file while connected leaves exactly ONE writer on the speakers   [writers before=1 after=1 (more than one = the heard echo: one copy on time, one lagging)]
+  PASS  the destination-writer counter agrees with the graph   [counter=1 edges=1]
+  PASS  file buffer is actually running
+  PASS  switching from a file stops the old looping source   [old buffer stop count=1]
+  PASS  file-to-demo switch has only one destination writer
+  PASS  disconnect silences the output and clears the writer counter   [writers left=0]
+  PASS  a file completing after disconnect cannot restart playback
+  PASS  no uncaught errors after full cycle
+
+53 checks, 0 failed
+PASS — every control on the shipped page is wired and live
+
+========== Simulated routing ==========
+CINEMAX routing and capture tests (simulated browser)
+
+  PASS  capture requests local audio suppression on the audio track
+  PASS  capture asks not to offer system or self-tab audio
+  PASS  supported tab capture connects one processed path without the fallback prompt
+  PASS  live capture asks for an interactive buffer
+  PASS  capture-to-file switch stops both old capture tracks
+  PASS  local file replaces the live context with a 100 ms buffer request
+  PASS  file replaces capture with exactly one destination writer
+  PASS  file-to-capture restores interactive request and closes the file context
+  PASS  file-to-capture switch stops the old looping buffer
+  PASS  disconnect stops capture and removes every audio connection
+  PASS  no uncaught errors in capture/source-switch flow
+  PASS  extra stability setting tells the listener to reconnect
+  PASS  reconnecting the file requests a 250 ms buffer with one writer
+  PASS  rebuild starts the capture picker within the user click and stops the old tracks
+  PASS  unconfirmed suppression shows the actual fallback panel before playback
+  PASS  fallback confirmation connects one output
+  PASS  a fresh capture requires a fresh fallback confirmation
+  PASS  cancelling the fallback stops tracks and closes the gate
+  PASS  ending a capture while the manual gate is open closes it and stops both tracks
+  PASS  an already-ended capture track cannot create an output path
+  PASS  ending microphone input disconnects and cleans up its tracks
+  PASS  whole-screen capture is refused and its tracks are stopped
+  PASS  a capture without an audio track is stopped with no playback path
+  PASS  browser ending a shared track disconnects and stops both tracks
+  PASS  unknown surface still requires a manual safety check
+  PASS  a capture picker completing after disconnect is stopped, not connected
+  PASS  worklet module loading is pending with no speaker output
+  PASS  stale worklet completion cannot create a second processor
+  PASS  cancelled pending buffer is stopped and cannot start
+  PASS  source switch replaces the context while the old worklet is pending
+  PASS  a stale worklet completion cannot poison the new context registration
+  PASS  exclusive browser lock prevents a second same-origin instance
+  PASS  a second instance can connect after the first releases its lock
+  PASS  unavailable storage and Web Locks produces an explicit duplicate-path warning
+  PASS  storage lease guards a second same-origin instance when Web Locks are missing
+  PASS  active lease heartbeat is renewed while playing
+  PASS  disconnect releases the local-storage lease
+  PASS  a second instance may connect after the lease is released
+  PASS  delay button warns when no source is connected
+  PASS  correlation detects the known 0-sample shift
+  PASS  correlation detects the known 1-sample shift
+  PASS  correlation detects the known 127-sample shift
+  PASS  correlation detects the known 128-sample shift
+  PASS  correlation detects the known 177-sample shift
+  PASS  correlation detects the known 511-sample shift
+  PASS  correlation detects the known 2048-sample shift
+  PASS  both in-graph time analysers are sized to the 4096-sample buffers
+  PASS  quality meter reports sample headroom and disabled automatic make-up gain
+  PASS  delay button reads input/output analysers and scales the result by the sample rate
+  PASS  calibration mutes program input and shares the existing speaker writer
+  PASS  disconnect stops calibration tone and microphone and removes all edges
+  PASS  microphone permission arriving after calibration cancellation is stopped
+  PASS  completed calibration restores input, stops probe, and keeps one output
+
+53 checks passed (simulation; real browser/device behavior still needs listening).
+
+========== Final direct file: local playback (Linux virtual monitor) ==========
+PASS standalone starts in headphone stereo mode
+PASS fast-kicks: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS fast-kicks: worklet reports real input/output energy
+PASS OS loopback fast-kicks-browser-on contains >= 2.5 seconds (2.74 s)
+PASS OS loopback fast-kicks-browser-on carries recorded audio (RMS 0.2248, peak 0.7252)
+PASS OS loopback fast-kicks-browser-on has no samples at digital full scale
+PASS fast-kicks: original + limiter comparison engaged
+PASS fast-kicks: restarted same source in original + limiter mode
+PASS OS loopback fast-kicks-browser-bypass contains >= 2.5 seconds (3.14 s)
+PASS OS loopback fast-kicks-browser-bypass carries recorded audio (RMS 0.2262, peak 0.7249)
+PASS OS loopback fast-kicks-browser-bypass has no samples at digital full scale
+PASS fast-kicks: playback disconnect releases its output
+PASS no uncaught Chromium page errors
+13 real browser playback/OS virtual-loopback checks passed. Not physical headphone listening.
+
+========== Final direct file: browser-tab capture (Linux virtual monitor) ==========
+PASS heavy-sub: real recording playing in a separate source tab
+PASS heavy-sub: actual tab stream goes through one production AudioWorklet
+PASS heavy-sub: Chromium reports source-tab local playback suppression
+PASS heavy-sub: OS loopback contains actual captured audio (RMS 0.2253)
+PASS heavy-sub: no samples reached digital full scale (peak 0.7246)
+PASS heavy-sub: closing source releases the processed path
+PASS film-explosion: real recording playing in a separate source tab
+PASS film-explosion: actual tab stream goes through one production AudioWorklet
+PASS film-explosion: Chromium reports source-tab local playback suppression
+PASS film-explosion: OS loopback contains actual captured audio (RMS 0.2457)
+PASS film-explosion: no samples reached digital full scale (peak 0.7274)
+PASS film-explosion: closing source releases the processed path
+PASS no uncaught app errors
+13 real-recording browser-tab capture checks passed (Linux test-only picker, not a Windows or human listening test).
+
+========== Final page live/file and requested-buffer switching (real Linux Chromium) ==========
+PASS local file opens through one AudioWorklet and requests 100 ms
+PASS local file loops past the in-memory seam fade
+INFO 100 ms request, browser-reported base 101.6 ms
+PASS file-to-tab switch closes the file context and requests interactive latency
+PASS real selected tab is suppressed and feeds one replacement AudioWorklet
+PASS tab-to-file switch stops both tracks and closes the live context
+PASS extra stability requests 250 ms on a new file context with one AudioWorklet
+PASS session reports that the 250 ms buffer is only a request
+INFO 250 ms request, browser-reported base 185.8 ms
+PASS changing buffer while connected asks for reconnect and does not misreport the active context
+PASS reconnecting applies the 100 ms request on a new context
+PASS disconnect releases the final graph
+PASS no uncaught browser page errors
+11 real Chromium source/buffer switch checks passed; no physical Windows listening.
+
+========== Final page local-loop seam (Chromium OfflineAudioContext) ==========
+PASS real OfflineAudioContext loop seam: {"originalJump":1,"seamFrames":480,"start":-0.5,"last":-0.2659990191459656,"next":-0.2655104994773865,"peak":0.5,"loopJumps":[0.0004885196685791016,0.0004885196685791016]}
+Linear 10 ms in-memory seam only; no source file is modified.
+
+========== Final page real-material 100 ms request — captures ==========
+WARNING monitor produced 5.28s in 6.00s wall; first=755ms last=5944ms maxGap=103ms
+PASS smooth-release-100 #1 original: 5.28s audio, rms=0.2267 peak=0.7269, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+PASS smooth-release-100 #1 enhanced: 5.99s audio, rms=0.2320 peak=0.7259, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+PASS smooth-release-100 #2 original: 6.00s audio, rms=0.2277 peak=0.7267, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+PASS smooth-release-100 #2 enhanced: 5.87s audio, rms=0.2324 peak=0.7263, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+Captures only; run analyze-continuity.py before interpreting them.
+
+========== Final page real-material 100 ms request — correlation ==========
+smooth-release-100 #1 original captured=5.28/6.00s median correlation=0.9587 reliable=20/21 jumps=0
+smooth-release-100 #1 enhanced captured=5.99/6.00s median correlation=0.9658 reliable=23/23 jumps=0
+smooth-release-100 #2 original captured=6.00/6.00s median correlation=0.9751 reliable=24/24 jumps=0
+smooth-release-100 #2 enhanced captured=5.87/6.00s median correlation=0.9611 reliable=23/23 jumps=0
+
+========== Final page real-material 250 ms request — captures ==========
+PASS smooth-release-250 #1 original: 5.93s audio, rms=0.2178 peak=0.7263, engine=AudioWorklet (128-frame blocks), browser base buffer=185.8ms
+PASS smooth-release-250 #1 enhanced: 5.93s audio, rms=0.2292 peak=0.7254, engine=AudioWorklet (128-frame blocks), browser base buffer=185.8ms
+PASS smooth-release-250 #2 original: 5.93s audio, rms=0.2276 peak=0.7259, engine=AudioWorklet (128-frame blocks), browser base buffer=185.8ms
+PASS smooth-release-250 #2 enhanced: 5.93s audio, rms=0.2290 peak=0.7260, engine=AudioWorklet (128-frame blocks), browser base buffer=185.8ms
+Captures only; run analyze-continuity.py before interpreting them.
+
+========== Final page real-material 250 ms request — correlation ==========
+smooth-release-250 #1 original captured=5.93/6.00s median correlation=0.9690 reliable=20/23 jumps=0
+smooth-release-250 #1 enhanced captured=5.93/6.00s median correlation=0.9983 reliable=22/23 jumps=0
+smooth-release-250 #2 original captured=5.93/6.00s median correlation=0.9838 reliable=22/23 jumps=0
+smooth-release-250 #2 enhanced captured=5.93/6.00s median correlation=0.9948 reliable=22/23 jumps=0
+
+========== Earlier synthetic monitor startup investigation — captures ==========
+WARNING monitor produced 2.59s in 4.01s wall; first=1422ms last=3991ms maxGap=26ms
+PASS smooth-monitor-diag #1 direct: 2.59s audio, rms=0.0953 peak=0.3299, engine=browser media element
+PASS smooth-monitor-diag #1 original: 3.98s audio, rms=0.0963 peak=0.3930, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+WARNING monitor produced 3.46s in 4.00s wall; first=626ms last=3984ms maxGap=105ms
+PASS smooth-monitor-diag #1 enhanced: 3.46s audio, rms=0.1001 peak=0.4028, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+PASS smooth-monitor-diag #2 direct: 3.98s audio, rms=0.0963 peak=0.3900, engine=browser media element
+PASS smooth-monitor-diag #2 original: 4.01s audio, rms=0.0963 peak=0.3911, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+PASS smooth-monitor-diag #2 enhanced: 3.93s audio, rms=0.1001 peak=0.3976, engine=AudioWorklet (128-frame blocks), browser base buffer=101.6ms
+Captures only; run analyze-continuity.py before interpreting them.
+
+========== Earlier synthetic monitor startup investigation — correlation ==========
+smooth-monitor-diag #1 direct   captured=2.59/4.01s median correlation=0.9946 reliable=9/10 jumps=0
+smooth-monitor-diag #1 original captured=3.98/4.00s median correlation=0.9999 reliable=15/15 jumps=0
+smooth-monitor-diag #1 enhanced captured=3.46/4.00s median correlation=0.9996 reliable=13/13 jumps=0
+smooth-monitor-diag #2 direct   captured=3.98/4.00s median correlation=0.9946 reliable=15/15 jumps=0
+smooth-monitor-diag #2 original captured=4.01/4.00s median correlation=0.9855 reliable=16/16 jumps=0
+smooth-monitor-diag #2 enhanced captured=3.93/4.00s median correlation=0.9749 reliable=15/15 jumps=0
+
+========== Additional timing and limitations ==========
+Older Clean Impact fast-kick baseline: one original + limiter run had a -160-sample
+source-correlation offset change; two further runs in each mode had none.
+Earlier independent -66/-595 sample observations are in LOOPBACK-CONTINUITY.json.
+One earlier synthetic WAV/MP3/M4A trial per mode found no detected offset jumps in
+the captured portions; some original captures were considerably shorter than wall
+time. These codec runs used a pre-selector 100 ms candidate, not the final page.
+
+The optimized AudioWorklet core profile used 1 ms Date.now timing over 2,000
+warm blocks per mode on this Linux host: mean 0.0655 ms enhanced, 0.068 ms original;
+one original block registered 7 ms, against a nominal 2.902 ms block interval.
+This does not establish real-time performance on Windows or that all deadlines
+were met. See SMOOTH-PLAYBACK-MEASUREMENTS.json for timing and test data.
+The virtual monitor, browser, host and clock can affect these recordings. None
+is a physical listening test, a guarantee of inaudible artifacts, or a certified
+true-peak measurement. The Windows batch launcher was not executed on Windows.

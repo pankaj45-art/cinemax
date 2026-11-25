@@ -1,0 +1,68 @@
+CINEMAX THEATRE SOUND UPGRADE v4 - 5x BASS (read THEATRE-UPGRADE.md)
+=======================================================
+New: Listening level, Virtual bass, "Theatre @ Low Volume" preset, 5.1 LFE
+bass kept, and a Glitch-free pre-render mode. Quick test: pick the
+"Theatre @ Low Volume" preset, set Windows volume low, connect your file.
+If it crackles, switch File/demo stability to "Glitch-free pre-render" and
+reconnect. This is not Dolby-licensed and has not been heard on real Windows
+hardware. Start quietly.
+
+CINEMAX SMOOTH PLAYBACK - WINDOWS HEADPHONE BETA
+================================================
+
+This is a NEW test build for the local-file crackling you reported. It has
+NOT been listened to on physical Windows headphones, and the cause of the
+crackle is still unknown. It may not fix your particular problem. Start at a
+low, comfortable volume and stop if the sound is uncomfortable.
+
+1. OPEN THE NEW BUILD
+
+  * Extract the ENTIRE ZIP into a NEW folder; do not overwrite the older app.
+  * Close older CINEMAX browser tabs AND their RUN-WINDOWS launcher windows.
+    Plug in your headphones and select them as the Windows sound output.
+  * Double-click RUN-WINDOWS.bat and keep its window open. Use Chrome or Edge;
+    if another browser opens, copy the address shown into Chrome or Edge.
+  * Check that the page heading includes "Smooth Playback" and that the
+    File/demo stability selector is visible. That confirms you opened
+    the new page rather than an older copy.
+  * If Python and Node are not installed, the launcher tries to open
+    CINEMAX.html directly. You can also right-click CINEMAX.html and open it
+    with Chrome or Edge. Tab-capture permissions may vary on a file: page.
+    See HOW-TO-RUN.md if port 8000 is busy or a capture is blocked.
+
+2. TEST THE SAME FILE QUIETLY
+
+  * Leave File/demo stability on Smooth (100 ms requested). Choose My own file
+    > Connect CINEMAX and pick the SAME file that crackled before.
+  * Start with Over-ear headphones, Stereo, Ambience 0%, Output level 0 dB,
+    and low Windows volume. The file plays inside CINEMAX and loops.
+  * Listen to a familiar passage in the normal enhanced mode, then press the
+    A/B compare button and check the SAME passage in original + limiter mode.
+    The latter still uses the limiter and is not a bit-perfect bypass on hot
+    peaks. The two modes are not automatically loudness-matched.
+  * If the crackle continues, click Disconnect, change File/demo stability to
+    Extra stability (250 ms requested), then Connect and select the same file
+    again. Recheck both A/B modes at low volume. The browser may choose a
+    different actual buffer. A larger buffer can delay playback/control changes.
+
+3. WHAT TO REPORT
+
+  Tell us whether the crackle is gone, reduced, or unchanged at EACH buffer
+  setting and in each A/B mode. If it remains, include your Chrome/Edge version,
+  whether the headphones are wired or Bluetooth, and the contents or a
+  screenshot of the app's Session section (engine, reported buffer and sample
+  rate). If known, include the filename extension and whether the problem is
+  throughout the track or only when it loops. Do not share a private audio file
+  unless you choose to.
+
+The decoded local file is held in memory; use a short clip first. To reduce a
+click at the loop boundary, this version crossfades the last 10 ms in memory
+with the beginning and restarts just after that segment. The disk file is NOT
+changed; the repeated interval is about 10 ms shorter. This cannot repair
+crackling throughout a file. For large files, memory usage can be substantial.
+
+For browser-tab capture and more troubleshooting, read HOW-TO-RUN.md. This ZIP
+updates the JavaScript browser app only; it does not process all Windows audio
+and does not update the old Android, mobile or native builds. The program
+limiter is not a guarantee of safe listening levels. Do not use speaker/mic
+auto-calibration for headphones; its test tones bypass the program limiter.

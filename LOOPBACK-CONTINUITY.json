@@ -1,0 +1,76 @@
+{
+  "method": "Cross-correlate 100 ms windows of captured 48 kHz monitor audio against decoded source; retain local matches >0.95. Whole-capture correlation first gives approximate start.",
+  "limitations": [
+    "Changes may originate in browser, test host, virtual sink, recorder or clocking; the source is not established.",
+    "This is not a Windows or physical-listening test. Not all glitches are detectable by this method.",
+    "Contains only numerical diagnostics; licensed source audio is not included."
+  ],
+  "results": [
+    {
+      "trial": "anomaly",
+      "mode": "processed",
+      "reliable_100ms_chunks": 30,
+      "capture_seconds": 3.194125,
+      "reliable_offset_span_samples": 67,
+      "offset_changes_over_10_samples": [
+        {
+          "between_seconds": [
+            1.0,
+            1.2
+          ],
+          "source_offset_change_samples": -66,
+          "source_offset_change_ms": -1.375
+        }
+      ]
+    },
+    {
+      "trial": "anomaly",
+      "mode": "original + limiter",
+      "reliable_100ms_chunks": 32,
+      "capture_seconds": 3.2043541666666666,
+      "reliable_offset_span_samples": 0,
+      "offset_changes_over_10_samples": []
+    },
+    {
+      "trial": "rerun-1",
+      "mode": "processed",
+      "reliable_100ms_chunks": 31,
+      "capture_seconds": 3.1950833333333333,
+      "reliable_offset_span_samples": 1,
+      "offset_changes_over_10_samples": []
+    },
+    {
+      "trial": "rerun-1",
+      "mode": "original + limiter",
+      "reliable_100ms_chunks": 30,
+      "capture_seconds": 3.1935416666666665,
+      "reliable_offset_span_samples": 595,
+      "offset_changes_over_10_samples": [
+        {
+          "between_seconds": [
+            1.2,
+            1.4
+          ],
+          "source_offset_change_samples": -595,
+          "source_offset_change_ms": -12.395833333333334
+        }
+      ]
+    },
+    {
+      "trial": "rerun-2",
+      "mode": "processed",
+      "reliable_100ms_chunks": 32,
+      "capture_seconds": 3.2043541666666666,
+      "reliable_offset_span_samples": 0,
+      "offset_changes_over_10_samples": []
+    },
+    {
+      "trial": "rerun-2",
+      "mode": "original + limiter",
+      "reliable_100ms_chunks": 31,
+      "capture_seconds": 3.19275,
+      "reliable_offset_span_samples": 0,
+      "offset_changes_over_10_samples": []
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "test": "Synthetic near-Nyquist, low tones, bursts and noise; 16x is an independent estimate, not a certificate.",
+  "results": [
+    {
+      "rate": 44100,
+      "bypass": false,
+      "sample_peak_dbfs": -2.7997460024652527,
+      "estimated_16x_peak_dbfs": -2.1487001613953955,
+      "hard_clamped_samples": 0
+    },
+    {
+      "rate": 44100,
+      "bypass": true,
+      "sample_peak_dbfs": -2.799788165782957,
+      "estimated_16x_peak_dbfs": -2.1313535520785165,
+      "hard_clamped_samples": 0
+    },
+    {
+      "rate": 48000,
+      "bypass": false,
+      "sample_peak_dbfs": -2.8015663577720424,
+      "estimated_16x_peak_dbfs": -2.193228774680884,
+      "hard_clamped_samples": 0
+    },
+    {
+      "rate": 48000,
+      "bypass": true,
+      "sample_peak_dbfs": -2.8194277770258247,
+      "estimated_16x_peak_dbfs": -2.179077295981876,
+      "hard_clamped_samples": 0
+    },
+    {
+      "rate": 96000,
+      "bypass": false,
+      "sample_peak_dbfs": -2.799974687321743,
+      "estimated_16x_peak_dbfs": -2.0668836347969233,
+      "hard_clamped_samples": 0
+    },
+    {
+      "rate": 96000,
+      "bypass": true,
+      "sample_peak_dbfs": -2.7999911242777333,
+      "estimated_16x_peak_dbfs": -2.0632062872011745,
+      "hard_clamped_samples": 0
+    }
+  ]
+}

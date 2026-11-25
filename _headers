@@ -1,0 +1,3 @@
+/*
+  Permissions-Policy: display-capture=(self), microphone=(self)
+  X-Content-Type-Options: nosniff

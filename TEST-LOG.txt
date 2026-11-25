@@ -1,0 +1,455 @@
+HISTORICAL LOG — EARLIER CLEAN IMPACT CANDIDATE, NOT THE CURRENT SMOOTH BUILD
+The earlier candidate was reported to crackle. For current results, see
+SMOOTH-TEST-LOG.txt and SMOOTH-PLAYBACK-REPORT.md.
+
+CINEMAX CLEAN IMPACT - RECORDED TEST OUTPUT
+Earlier standalone SHA-256: d23878e1db801bc2c6ceae5300d6b47003f02feebaba700da031144d7734987f
+All browser, synthetic and loopback tests ran on Linux, not Windows headphones.
+Some earlier localhost diagnostics predate a file-only worklet-loader change but use the same DSP core.
+Continuity limitations and failures are recorded below; passing audio-presence checks do not disprove them.
+
+
+========== Engine smoke ==========
+PASS: silence, finite stereo output, 60 Hz partial THD 0.0048%, protected hot A/B peak 0.7245.
+Synthetic smoke test only; not a listening or certified peak test.
+
+========== Simulated worklet wrapper ==========
+Registered: cinemax | 600 initial blocks | peak sample: 0.6615 | hot dry peak: 0.7245
+PASS: actual app wrapper, ready/meters/watchdog, params, calibration, aligned protected A/B and silence (simulated worklet).
+
+========== Direct synthetic suite ==========
+PASS silence remains exactly silent at 44100 Hz, mode 0
+PASS silence remains exactly silent at 44100 Hz, mode 1
+PASS silence remains exactly silent at 44100 Hz, mode 2
+PASS silence remains exactly silent at 48000 Hz, mode 0
+PASS silence remains exactly silent at 48000 Hz, mode 1
+PASS silence remains exactly silent at 48000 Hz, mode 2
+PASS silence remains exactly silent at 96000 Hz, mode 0
+PASS silence remains exactly silent at 96000 Hz, mode 1
+PASS silence remains exactly silent at 96000 Hz, mode 2
+PASS 60 Hz steady-tone generated harmonics below 0.1% — new 0.0061%, legacy 6.005%
+PASS 20 Hz source preserved without an aggressive low cut — 0.29 dB after settling
+PASS 25 Hz source preserved without an aggressive low cut — 0.34 dB after settling
+PASS 35 Hz source preserved without an aggressive low cut — 0.41 dB after settling
+PASS 60 Hz source preserved without an aggressive low cut — 0.53 dB after settling
+PASS 100 Hz source preserved without an aggressive low cut — 0.79 dB after settling
+PASS 200 Hz source preserved without an aggressive low cut — 0.52 dB after settling
+PASS 500 Hz source preserved without an aggressive low cut — 0.10 dB after settling
+PASS 1000 Hz source preserved without an aggressive low cut — 0.09 dB after settling
+PASS punch responds to a real low-frequency transient — impact RMS ratio 1.137
+PASS impact tail decays to near silence — -164.5 dBFS RMS, 0.38 s after source ends
+PASS initial bypass is exact and latency aligned when the limiter is idle — delay 296 samples; max error 0.00e+0
+PASS bypass keeps peak limiting active on a hot source — dry-path sample peak 0.724479
+PASS live A/B transition is crossfaded without a large discontinuity — largest 997 Hz sample step 0.0105
+PASS hot repeated A/B transitions stay finite and below full scale at 44100 Hz — sample peak 0.724437, clamped samples 0, max step 0.1028
+PASS hot repeated A/B transitions stay finite and below full scale at 48000 Hz — sample peak 0.724443, clamped samples 0, max step 0.0945
+PASS hot repeated A/B transitions stay finite and below full scale at 96000 Hz — sample peak 0.724439, clamped samples 0, max step 0.0473
+PASS mono input stays mono with spatial effects
+PASS L/R swap symmetry is preserved
+PASS width and diffusion cancel in the mono sum at moderate level
+PASS typed-array calibration is accepted
+PASS extreme-parameter output is finite and sample bounded at 44100 Hz — sample peak 0.538303, hard-clamped samples 0
+INFO 44100 Hz Node render 0.788 s for 4 s of audio (5.1× real time; not a Windows benchmark)
+PASS extreme-parameter output is finite and sample bounded at 48000 Hz — sample peak 0.538405, hard-clamped samples 0
+INFO 48000 Hz Node render 0.851 s for 4 s of audio (4.7× real time; not a Windows benchmark)
+PASS extreme-parameter output is finite and sample bounded at 96000 Hz — sample peak 0.533173, hard-clamped samples 0
+INFO 96000 Hz Node render 1.774 s for 4 s of audio (2.3× real time; not a Windows benchmark)
+
+33 synthetic checks passed. No physical headphones or listening involved.
+
+========== Independent 16x synthetic peak estimate ==========
+44100 Hz processed   sample=-2.80 dBFS 16x=-2.15 dBFS clamps=0
+44100 Hz dry+limiter sample=-2.80 dBFS 16x=-2.13 dBFS clamps=0
+48000 Hz processed   sample=-2.80 dBFS 16x=-2.19 dBFS clamps=0
+48000 Hz dry+limiter sample=-2.82 dBFS 16x=-2.18 dBFS clamps=0
+96000 Hz processed   sample=-2.80 dBFS 16x=-2.07 dBFS clamps=0
+96000 Hz dry+limiter sample=-2.80 dBFS 16x=-2.06 dBFS clamps=0
+Synthetic stress only; downstream devices and codecs can still overshoot.
+
+========== Real material offline measurements ==========
+heavy-sub       LUFS src/new/old -11.6/-13.0/-16.1  8x peak new -2.73 dBFS  lowband(new/old) -0.15/+1.18 dB  mono corr(new) 0.9948
+fast-kicks      LUFS src/new/old -9.6/-11.3/-15.9  8x peak new -2.76 dBFS  lowband(new/old) +0.46/+1.91 dB  mono corr(new) 0.9947
+bass-guitar     LUFS src/new/old -12.1/-13.3/-14.6  8x peak new -2.79 dBFS  lowband(new/old) +0.82/+3.10 dB  mono corr(new) 0.9904
+soft-romantic   LUFS src/new/old -15.6/-15.5/-15.9  8x peak new -2.80 dBFS  lowband(new/old) +0.38/+2.33 dB  mono corr(new) 0.9997
+orchestral      LUFS src/new/old -18.0/-17.8/-16.5  8x peak new -2.91 dBFS  lowband(new/old) +0.40/+2.16 dB  mono corr(new) 0.9994
+film-explosion  LUFS src/new/old -6.7/-10.2/-15.0  8x peak new -2.57 dBFS  lowband(new/old) +0.53/+0.77 dB  mono corr(new) 0.9903
+film-dialogue   LUFS src/new/old -19.7/-19.8/-19.1  8x peak new -2.75 dBFS  lowband(new/old) +0.44/-1.06 dB  mono corr(new) 0.9627
+quiet-to-loud   LUFS src/new/old -16.9/-17.8/-17.5  8x peak new -2.79 dBFS  lowband(new/old) +0.44/+0.90 dB  mono corr(new) 0.9889
+Wrote /home/user/cinemax-clean/docs/CLEAN-IMPACT-MEASUREMENTS.json
+
+========== Final page - Chromium local-file playback on localhost ==========
+PASS standalone starts in headphone stereo mode
+PASS heavy-sub: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS heavy-sub: worklet reports real input/output energy
+PASS OS loopback heavy-sub-browser-on contains >= 2.5 seconds (3.19 s)
+PASS OS loopback heavy-sub-browser-on carries recorded audio (RMS 0.2241, peak 0.7246)
+PASS OS loopback heavy-sub-browser-on has no samples at digital full scale
+PASS heavy-sub: original + limiter comparison engaged
+PASS heavy-sub: restarted same source in original + limiter mode
+PASS OS loopback heavy-sub-browser-bypass contains >= 2.5 seconds (3.19 s)
+PASS OS loopback heavy-sub-browser-bypass carries recorded audio (RMS 0.2207, peak 0.7246)
+PASS OS loopback heavy-sub-browser-bypass has no samples at digital full scale
+PASS heavy-sub: playback disconnect releases its output
+PASS fast-kicks: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS fast-kicks: worklet reports real input/output energy
+PASS OS loopback fast-kicks-browser-on contains >= 2.5 seconds (3.20 s)
+PASS OS loopback fast-kicks-browser-on carries recorded audio (RMS 0.2307, peak 0.7257)
+PASS OS loopback fast-kicks-browser-on has no samples at digital full scale
+PASS fast-kicks: original + limiter comparison engaged
+PASS fast-kicks: restarted same source in original + limiter mode
+PASS OS loopback fast-kicks-browser-bypass contains >= 2.5 seconds (3.19 s)
+PASS OS loopback fast-kicks-browser-bypass carries recorded audio (RMS 0.2269, peak 0.7260)
+PASS OS loopback fast-kicks-browser-bypass has no samples at digital full scale
+PASS fast-kicks: playback disconnect releases its output
+PASS bass-guitar: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS bass-guitar: worklet reports real input/output energy
+PASS OS loopback bass-guitar-browser-on contains >= 2.5 seconds (3.19 s)
+PASS OS loopback bass-guitar-browser-on carries recorded audio (RMS 0.1559, peak 0.7242)
+PASS OS loopback bass-guitar-browser-on has no samples at digital full scale
+PASS bass-guitar: original + limiter comparison engaged
+PASS bass-guitar: restarted same source in original + limiter mode
+PASS OS loopback bass-guitar-browser-bypass contains >= 2.5 seconds (3.20 s)
+PASS OS loopback bass-guitar-browser-bypass carries recorded audio (RMS 0.1516, peak 0.7249)
+PASS OS loopback bass-guitar-browser-bypass has no samples at digital full scale
+PASS bass-guitar: playback disconnect releases its output
+PASS soft-romantic: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS soft-romantic: worklet reports real input/output energy
+PASS OS loopback soft-romantic-browser-on contains >= 2.5 seconds (3.19 s)
+PASS OS loopback soft-romantic-browser-on carries recorded audio (RMS 0.1229, peak 0.4759)
+PASS OS loopback soft-romantic-browser-on has no samples at digital full scale
+PASS soft-romantic: original + limiter comparison engaged
+PASS soft-romantic: restarted same source in original + limiter mode
+PASS OS loopback soft-romantic-browser-bypass contains >= 2.5 seconds (3.20 s)
+PASS OS loopback soft-romantic-browser-bypass carries recorded audio (RMS 0.1191, peak 0.4626)
+PASS OS loopback soft-romantic-browser-bypass has no samples at digital full scale
+PASS soft-romantic: playback disconnect releases its output
+PASS orchestral: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS orchestral: worklet reports real input/output energy
+PASS OS loopback orchestral-browser-on contains >= 2.5 seconds (3.19 s)
+PASS OS loopback orchestral-browser-on carries recorded audio (RMS 0.1041, peak 0.7070)
+PASS OS loopback orchestral-browser-on has no samples at digital full scale
+PASS orchestral: original + limiter comparison engaged
+PASS orchestral: restarted same source in original + limiter mode
+PASS OS loopback orchestral-browser-bypass contains >= 2.5 seconds (3.20 s)
+PASS OS loopback orchestral-browser-bypass carries recorded audio (RMS 0.1005, peak 0.6750)
+PASS OS loopback orchestral-browser-bypass has no samples at digital full scale
+PASS orchestral: playback disconnect releases its output
+PASS film-explosion: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS film-explosion: worklet reports real input/output energy
+PASS OS loopback film-explosion-browser-on contains >= 2.5 seconds (3.19 s)
+PASS OS loopback film-explosion-browser-on carries recorded audio (RMS 0.2254, peak 0.7271)
+PASS OS loopback film-explosion-browser-on has no samples at digital full scale
+PASS film-explosion: original + limiter comparison engaged
+PASS film-explosion: restarted same source in original + limiter mode
+PASS OS loopback film-explosion-browser-bypass contains >= 2.5 seconds (3.20 s)
+PASS OS loopback film-explosion-browser-bypass carries recorded audio (RMS 0.2249, peak 0.7275)
+PASS OS loopback film-explosion-browser-bypass has no samples at digital full scale
+PASS film-explosion: playback disconnect releases its output
+PASS film-dialogue: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS film-dialogue: worklet reports real input/output energy
+PASS OS loopback film-dialogue-browser-on contains >= 2.5 seconds (3.19 s)
+PASS OS loopback film-dialogue-browser-on carries recorded audio (RMS 0.1383, peak 0.7259)
+PASS OS loopback film-dialogue-browser-on has no samples at digital full scale
+PASS film-dialogue: original + limiter comparison engaged
+PASS film-dialogue: restarted same source in original + limiter mode
+PASS OS loopback film-dialogue-browser-bypass contains >= 2.5 seconds (3.19 s)
+PASS OS loopback film-dialogue-browser-bypass carries recorded audio (RMS 0.1443, peak 0.7239)
+PASS OS loopback film-dialogue-browser-bypass has no samples at digital full scale
+PASS film-dialogue: playback disconnect releases its output
+PASS quiet-to-loud: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS quiet-to-loud: worklet reports real input/output energy
+PASS OS loopback quiet-to-loud-browser-on contains >= 2.5 seconds (3.19 s)
+PASS OS loopback quiet-to-loud-browser-on carries recorded audio (RMS 0.0953, peak 0.7212)
+PASS OS loopback quiet-to-loud-browser-on has no samples at digital full scale
+PASS quiet-to-loud: original + limiter comparison engaged
+PASS quiet-to-loud: restarted same source in original + limiter mode
+PASS OS loopback quiet-to-loud-browser-bypass contains >= 2.5 seconds (3.20 s)
+PASS OS loopback quiet-to-loud-browser-bypass carries recorded audio (RMS 0.0937, peak 0.7071)
+PASS OS loopback quiet-to-loud-browser-bypass has no samples at digital full scale
+PASS quiet-to-loud: playback disconnect releases its output
+PASS no uncaught Chromium page errors
+90 real browser playback/OS virtual-loopback checks passed. Not physical headphone listening.
+
+========== Final page - direct file launch local-file playback ==========
+PASS standalone starts in headphone stereo mode
+PASS film-explosion: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS film-explosion: worklet reports real input/output energy
+PASS OS loopback film-explosion-browser-on contains >= 2.5 seconds (3.18 s)
+PASS OS loopback film-explosion-browser-on carries recorded audio (RMS 0.2253, peak 0.7258)
+PASS OS loopback film-explosion-browser-on has no samples at digital full scale
+PASS film-explosion: original + limiter comparison engaged
+PASS film-explosion: restarted same source in original + limiter mode
+PASS OS loopback film-explosion-browser-bypass contains >= 2.5 seconds (3.18 s)
+PASS OS loopback film-explosion-browser-bypass carries recorded audio (RMS 0.2247, peak 0.7268)
+PASS OS loopback film-explosion-browser-bypass has no samples at digital full scale
+PASS film-explosion: playback disconnect releases its output
+PASS no uncaught Chromium page errors
+13 real browser playback/OS virtual-loopback checks passed. Not physical headphone listening.
+
+========== Final page - direct file launch shared-tab recording ==========
+PASS heavy-sub: real recording playing in a separate source tab
+PASS heavy-sub: actual tab stream goes through one production AudioWorklet
+PASS heavy-sub: Chromium reports source-tab local playback suppression
+PASS heavy-sub: OS loopback contains actual captured audio (RMS 0.2227)
+PASS heavy-sub: no samples reached digital full scale (peak 0.7251)
+PASS heavy-sub: closing source releases the processed path
+PASS film-explosion: real recording playing in a separate source tab
+PASS film-explosion: actual tab stream goes through one production AudioWorklet
+PASS film-explosion: Chromium reports source-tab local playback suppression
+PASS film-explosion: OS loopback contains actual captured audio (RMS 0.2457)
+PASS film-explosion: no samples reached digital full scale (peak 0.7283)
+PASS film-explosion: closing source releases the processed path
+PASS no uncaught app errors
+13 real-recording browser-tab capture checks passed (Linux test-only picker, not a Windows or human listening test).
+
+========== Earlier localhost - Chromium tab capture, synthetic audio ==========
+PASS desktop app starts in browser-tab source mode
+PASS CINEMAX connected to the actual browser capture API
+PASS real shared tab provides one live audio track
+PASS capture is a browser tab, not a screen or window
+PASS one owned audio destination writer after connection
+PASS production AudioWorklet DSP initialized
+PASS live synthetic tab audio reaches input and processed output (RMS 0.0799/0.0904)
+PASS A/B bypass toggles on while capturing
+PASS bypass still passes the live shared audio
+PASS A/B bypass toggles off again
+PASS closing the shared source tears down the capture graph
+PASS reconnecting creates just one destination writer
+PASS disconnect stops and releases the owned graph
+PASS no uncaught JavaScript page errors
+capture settings: {
+  "connected": true,
+  "source": "capture",
+  "engine": "AudioWorklet (128-frame blocks)",
+  "suppression": "requested",
+  "audio": [
+    {
+      "state": "live",
+      "settings": {
+        "autoGainControl": false,
+        "channelCount": 2,
+        "deviceId": "web-contents-media-stream://6:8?local_echo=false",
+        "echoCancellation": false,
+        "latency": 0.01,
+        "noiseSuppression": false,
+        "restrictOwnAudio": false,
+        "sampleRate": 44100,
+        "sampleSize": 16,
+        "suppressLocalAudioPlayback": true,
+        "voiceIsolation": false
+      }
+    }
+  ],
+  "video": [
+    {
+      "state": "live",
+      "settings": {
+        "aspectRatio": 1.7777777777777777,
+        "cursor": "motion",
+        "deviceId": "web-contents-media-stream://6:8",
+        "displaySurface": "browser",
+        "frameRate": 30,
+        "height": 720,
+        "logicalSurface": true,
+        "resizeMode": "crop-and-scale",
+        "width": 1280
+      }
+    }
+  ],
+  "writers": 1,
+  "count": 9
+}
+14 real Chromium tab-capture checks passed (Linux synthetic source, not a named service or Windows hardware).
+
+========== Earlier localhost - Chromium tab capture, two local recordings ==========
+PASS heavy-sub: real recording playing in a separate source tab
+PASS heavy-sub: actual tab stream goes through one production AudioWorklet
+PASS heavy-sub: Chromium reports source-tab local playback suppression
+PASS heavy-sub: OS loopback contains actual captured audio (RMS 0.2223)
+PASS heavy-sub: no samples reached digital full scale (peak 0.7251)
+PASS heavy-sub: closing source releases the processed path
+PASS film-explosion: real recording playing in a separate source tab
+PASS film-explosion: actual tab stream goes through one production AudioWorklet
+PASS film-explosion: Chromium reports source-tab local playback suppression
+PASS film-explosion: OS loopback contains actual captured audio (RMS 0.2462)
+PASS film-explosion: no samples reached digital full scale (peak 0.7296)
+PASS film-explosion: closing source releases the processed path
+PASS no uncaught app errors
+13 real-recording browser-tab capture checks passed (Linux test-only picker, not a Windows or human listening test).
+
+========== Earlier localhost - transition stress ==========
+PASS actual AudioWorklet playing a real film passage with one writer and +15 dB stress trim
+PASS eight alternating original/processed toggles completed while recording
+PASS loopback stays finite and contains 4.06 s of audio
+PASS no samples near digital full scale during stress toggles (peak 0.7258)
+PASS one owned output remains after toggles
+PASS disconnect releases the output
+PASS no uncaught page errors
+7 real Chromium A/B transition checks passed; sample safety only, not a physical click/listening test.
+
+========== Earlier localhost - fast-kicks independent rerun 1 ==========
+PASS standalone starts in headphone stereo mode
+PASS fast-kicks: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS fast-kicks: worklet reports real input/output energy
+PASS OS loopback fast-kicks-browser-on contains >= 2.5 seconds (3.20 s)
+PASS OS loopback fast-kicks-browser-on carries recorded audio (RMS 0.2305, peak 0.7259)
+PASS OS loopback fast-kicks-browser-on has no samples at digital full scale
+PASS fast-kicks: original + limiter comparison engaged
+PASS fast-kicks: restarted same source in original + limiter mode
+PASS OS loopback fast-kicks-browser-bypass contains >= 2.5 seconds (3.19 s)
+PASS OS loopback fast-kicks-browser-bypass carries recorded audio (RMS 0.2263, peak 0.7251)
+PASS OS loopback fast-kicks-browser-bypass has no samples at digital full scale
+PASS fast-kicks: playback disconnect releases its output
+PASS no uncaught Chromium page errors
+13 real browser playback/OS virtual-loopback checks passed. Not physical headphone listening.
+
+========== Earlier localhost - fast-kicks independent rerun 2 ==========
+PASS standalone starts in headphone stereo mode
+PASS fast-kicks: production AudioWorklet plays a real file with one destination writer at 44100 Hz
+PASS fast-kicks: worklet reports real input/output energy
+PASS OS loopback fast-kicks-browser-on contains >= 2.5 seconds (3.20 s)
+PASS OS loopback fast-kicks-browser-on carries recorded audio (RMS 0.2307, peak 0.7254)
+PASS OS loopback fast-kicks-browser-on has no samples at digital full scale
+PASS fast-kicks: original + limiter comparison engaged
+PASS fast-kicks: restarted same source in original + limiter mode
+PASS OS loopback fast-kicks-browser-bypass contains >= 2.5 seconds (3.19 s)
+PASS OS loopback fast-kicks-browser-bypass carries recorded audio (RMS 0.2275, peak 0.7252)
+PASS OS loopback fast-kicks-browser-bypass has no samples at digital full scale
+PASS fast-kicks: playback disconnect releases its output
+PASS no uncaught Chromium page errors
+13 real browser playback/OS virtual-loopback checks passed. Not physical headphone listening.
+
+========== Earlier localhost - loopback continuity anomalies ==========
+anomaly  processed          reliable=30 offset_span=  67 samples changes=[{'between_seconds': [1.0, 1.2], 'source_offset_change_samples': -66, 'source_offset_change_ms': -1.375}]
+anomaly  original + limiter reliable=32 offset_span=   0 samples changes=[]
+rerun-1  processed          reliable=31 offset_span=   1 samples changes=[]
+rerun-1  original + limiter reliable=30 offset_span= 595 samples changes=[{'between_seconds': [1.2, 1.4], 'source_offset_change_samples': -595, 'source_offset_change_ms': -12.395833333333334}]
+rerun-2  processed          reliable=32 offset_span=   0 samples changes=[]
+rerun-2  original + limiter reliable=31 offset_span=   0 samples changes=[]
+Wrote /home/user/cinemax-clean/docs/LOOPBACK-CONTINUITY.json
+
+========== Final page - loudness-aligned browser measurements ==========
+heavy-sub      overlap=3.18s lag=+5.6ms corr=0.9963 match=-13.73/-13.73 LUFS 20-80Hz=-0.05dB source-offset=0.42s
+fast-kicks     overlap=3.19s lag=-0.7ms corr=0.6138 match=-11.67/-11.67 LUFS 20-80Hz=+0.12dB source-offset=0.40s
+bass-guitar    overlap=3.19s lag=+0.0ms corr=0.9981 match=-14.02/-14.02 LUFS 20-80Hz=+0.25dB source-offset=0.41s
+soft-romantic  overlap=3.18s lag=+19.1ms corr=0.7730 match=-16.57/-16.57 LUFS 20-80Hz=+0.97dB source-offset=0.40s
+orchestral     overlap=3.19s lag=+0.0ms corr=0.9976 match=-17.49/-17.49 LUFS 20-80Hz=+0.36dB source-offset=0.41s
+film-explosion overlap=3.19s lag=+0.0ms corr=0.9948 match=-10.09/-10.09 LUFS 20-80Hz=+0.29dB source-offset=0.41s
+film-dialogue  overlap=3.19s lag=+0.0ms corr=0.9265 match=-16.70/-16.70 LUFS 20-80Hz=+0.45dB source-offset=0.41s
+quiet-to-loud  overlap=3.19s lag=+0.0ms corr=0.9718 match=-21.07/-21.07 LUFS 20-80Hz=+0.20dB source-offset=0.41s
+Wrote /home/user/cinemax-clean/docs/BROWSER-LOOPBACK-MEASUREMENTS.json
+
+========== Final page - simulated UI ==========
+CINEMAX UI smoke test — CINEMAX.html
+
+  PASS  page boots without uncaught errors
+  PASS  engine loaded (CinemaxCore present)
+  PASS  all 4 source tiles rendered
+  PASS  status line initialised   [Ready. Choose a source, then connect. (S]
+  PASS  boot controls match conservative headphone, stereo, no-ambience settings
+  PASS  engine processes audio inside the page   [out=-0.227]
+  PASS  source tile selects
+  PASS  connect reaches the audio graph   [Connected. ScriptProcessor (1024-frame blocks, fallback]
+  PASS  now-playing label updated   [Demo scene → Over-ear headphones]
+  PASS  worklet fallback (ScriptProcessor) mounted   [createScriptProcessor x1]
+  PASS  session info populated   [Engine: ScriptProcessor (1024-frame blocks, fallback)Reporte]
+  PASS  bass slider is live   [50% -> 90%]
+  PASS  theatre preset applies to every slider and is the bass-heaviest mode   [bass by preset: cinemawoofer=65 musicwoofer=65 cinema=55 imax=62 dolby=50 theatre=75 concert=42 studio=35 musicbass=68 vocal=20 night=35 neutral=0]
+  PASS  theatre preset does not add automatic output gain   [theatre gain=0 dB vs neutral 0]
+  PASS  all presets present: 2 woofer modes + 9 cinema/music modes + neutral   [cinemawoofer,musicwoofer,cinema,imax,dolby,theatre,concert,studio,musicbass,vocal,night,neutral]
+  PASS  woofer panel has all six controls   [woofer=true depth=true w-punch=true w-sub=true w-surround=true w-dialogue=true]
+  PASS  woofer panel is two-way: moving a mirror moves the engine parameter   [param=0.88 main=88 mirror-label=88%]
+  PASS  and the other way: the main slider moves the mirror   [mirror=30]
+  PASS  one-click reset puts every woofer control back   [0.5 / 0.5 / 0.45 / 0.35]
+  PASS  profile suggestions remain conservative across devices   [phone=35/45/10 laptop=40/45/10 headphone=50/50/15 hifi=45/50/10]
+  PASS  Cinema Woofer preset provides restrained bass and dialogue   [woofer=0.75 bass=0.65 dialogue=0.55]
+  PASS  Music Woofer preset is restrained bass+punch in stereo   [woofer=0.72 punch=0.7 dialogue=0.2]
+  PASS  C · Dolby-inspired carries the widest surround and engages virtual 6.1   [widest=dolby (45) spatial=20 mode=2]
+  PASS  F · Music Studio is a different config (low bass, stereo, no reverb)   [bass=35 mode=0 amb=0]
+  PASS  I · Night Cinema favors dialogue and compression without a large bass boost   [lowvol=10 dialogue=65]
+  PASS  NL quiet-volume request changes tilt but not output trim and keeps mirrors synced   [lowvol=20 gain=0]
+  PASS  NL "dolby immersive" selects the Dolby-inspired mode   [Applied: C · Dolby-inspired No matching change was needed, s]
+  PASS  unrecognised request changes nothing and says so   [Applied to your current settings No matching change was need]
+  PASS  late-night toggle latches
+  PASS  A/B bypass latches   [A/B: original + limiter]
+  PASS  device profile changes the engine + reality note   [Over-ear headphones. Response depends on your headphone]
+  PASS  visualiser loop runs
+  PASS  disconnect cleans up
+  PASS  every audio chain node is registered for teardown
+  PASS  exactly one place connects to the speakers   [found 1]
+  PASS  the attach function is used by both entry points
+  PASS  teardown zeroes the destination-writer count
+  PASS  new connection tears down the old graph and rejects stale attaches
+  PASS  exactly ONE input to the live processor after each of four rebuilds   [inputs per rebuild=1,1,1,1]
+  PASS  exactly ONE speaker writer after four rebuilds   [counter=1]
+  PASS  disconnect leaves no live audio edges   [edges before=6 after=0]
+  PASS  connect works after disconnect   [Connected. ScriptProcessor (1024-frame blocks, fal]
+  PASS  a pending rebuild cannot reconnect after a disconnect   [live edges after rebuild+disconnect race: 0]
+  PASS  loading a file while connected leaves exactly ONE writer on the speakers   [writers before=1 after=1 (more than one = the heard echo: one copy on time, one lagging)]
+  PASS  the destination-writer counter agrees with the graph   [counter=1 edges=1]
+  PASS  file buffer is actually running
+  PASS  switching from a file stops the old looping source   [old buffer stop count=1]
+  PASS  file-to-demo switch has only one destination writer
+  PASS  disconnect silences the output and clears the writer counter   [writers left=0]
+  PASS  a file completing after disconnect cannot restart playback
+  PASS  no uncaught errors after full cycle
+
+51 checks, 0 failed
+PASS — every control on the shipped page is wired and live
+
+========== Final page - simulated routing ==========
+CINEMAX routing and capture tests (simulated browser)
+
+  PASS  capture requests local audio suppression on the audio track
+  PASS  capture asks not to offer system or self-tab audio
+  PASS  supported tab capture connects one processed path without the fallback prompt
+  PASS  capture-to-file switch stops both old capture tracks
+  PASS  file replaces capture with exactly one destination writer
+  PASS  file-to-capture switch stops the old looping buffer
+  PASS  disconnect stops capture and removes every audio connection
+  PASS  no uncaught errors in capture/source-switch flow
+  PASS  rebuild starts the capture picker within the user click and stops the old tracks
+  PASS  unconfirmed suppression shows the actual fallback panel before playback
+  PASS  fallback confirmation connects one output
+  PASS  a fresh capture requires a fresh fallback confirmation
+  PASS  cancelling the fallback stops tracks and closes the gate
+  PASS  ending a capture while the manual gate is open closes it and stops both tracks
+  PASS  an already-ended capture track cannot create an output path
+  PASS  ending microphone input disconnects and cleans up its tracks
+  PASS  whole-screen capture is refused and its tracks are stopped
+  PASS  a capture without an audio track is stopped with no playback path
+  PASS  browser ending a shared track disconnects and stops both tracks
+  PASS  unknown surface still requires a manual safety check
+  PASS  a capture picker completing after disconnect is stopped, not connected
+  PASS  worklet module loading is pending with no speaker output
+  PASS  stale worklet completion cannot create a second processor
+  PASS  cancelled pending buffer is stopped and cannot start
+  PASS  exclusive browser lock prevents a second same-origin instance
+  PASS  a second instance can connect after the first releases its lock
+  PASS  unavailable storage and Web Locks produces an explicit duplicate-path warning
+  PASS  storage lease guards a second same-origin instance when Web Locks are missing
+  PASS  active lease heartbeat is renewed while playing
+  PASS  disconnect releases the local-storage lease
+  PASS  a second instance may connect after the lease is released
+  PASS  delay button warns when no source is connected
+  PASS  correlation detects the known 0-sample shift
+  PASS  correlation detects the known 1-sample shift
+  PASS  correlation detects the known 127-sample shift
+  PASS  correlation detects the known 128-sample shift
+  PASS  correlation detects the known 177-sample shift
+  PASS  correlation detects the known 511-sample shift
+  PASS  correlation detects the known 2048-sample shift
+  PASS  both in-graph time analysers are sized to the 4096-sample buffers
+  PASS  quality meter reports sample headroom and disabled automatic make-up gain
+  PASS  delay button reads input/output analysers and scales the result by the sample rate
+  PASS  calibration mutes program input and shares the existing speaker writer
+  PASS  disconnect stops calibration tone and microphone and removes all edges
+  PASS  microphone permission arriving after calibration cancellation is stopped
+  PASS  completed calibration restores input, stops probe, and keeps one output
+
+46 checks passed (simulation; real browser/device behavior still needs listening).
+
+========== Final page - Python and Node launcher servers ==========
+PASS: Python loopback server serves the packaged app and both WAVs; occupied-port startup is refused.
+PASS: Node loopback server serves the packaged app and both WAVs; occupied-port startup is refused.
+The Windows .bat and browser capture remain untested on a real Windows device.

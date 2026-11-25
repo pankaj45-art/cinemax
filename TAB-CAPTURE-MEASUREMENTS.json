@@ -1,0 +1,32 @@
+{
+  "method": "Headed Linux Chromium shared a separate browser tab playing local recordings, through production AudioWorklet; PulseAudio null-sink monitor.",
+  "checks": 13,
+  "limitations": [
+    "Not an end-to-end Windows, DRM streaming-service or physical headphone test.",
+    "Reported suppression and owned output count do not prove all external playback paths are silent."
+  ],
+  "cases": [
+    {
+      "class": "heavy-sub",
+      "engine": "AudioWorklet (128-frame blocks)",
+      "owned_destination_writers": 1,
+      "reported_display_surface": "browser",
+      "reported_suppress_local_audio_playback": true,
+      "capture_seconds": 3.4918125,
+      "rms": 0.2223275109502216,
+      "sample_peak": 0.725067138671875,
+      "samples_at_or_above_0_9999": 0
+    },
+    {
+      "class": "film-explosion",
+      "engine": "AudioWorklet (128-frame blocks)",
+      "owned_destination_writers": 1,
+      "reported_display_surface": "browser",
+      "reported_suppress_local_audio_playback": true,
+      "capture_seconds": 3.4875833333333333,
+      "rms": 0.24618919079329885,
+      "sample_peak": 0.72955322265625,
+      "samples_at_or_above_0_9999": 0
+    }
+  ]
+}

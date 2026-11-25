@@ -1,0 +1,23 @@
+{
+  "checks": 7,
+  "seconds": 4.0550625,
+  "rms": 0.21906608242742678,
+  "peak": 0.72576904296875,
+  "maxSampleStep": 0.71917724609375,
+  "nearFullScaleSamples": 0,
+  "states": [
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false
+  ],
+  "method": "Linux Chromium AudioWorklet, real film passage, 8 A/B toggles while recording the virtual sink; +15 dB wet trim is deliberately extreme.",
+  "limitations": [
+    "Sample-bounds assertion only; not proof of click-free, Windows or headphone behavior.",
+    "Estimated digital peaks cannot establish safe sound pressure level."
+  ]
+}

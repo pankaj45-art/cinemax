@@ -1,0 +1,294 @@
+{
+  "method": "Headed Linux Chromium AudioWorklet, PulseAudio null-sink monitor; restart same source in each mode; correlate to align, then constant-gain BS.1770 loudness match.",
+  "limitations": [
+    "Not a Windows machine, headphone hardware, or human listening.",
+    "The original comparison retains peak limiting; it is not bit-transparent on hot peaks.",
+    "Loopback captures only ~3.2 seconds per mode; off-screen perceptual quality is not established.",
+    "Some loopback captures may have time-offset jumps; single-lag correlations and band comparisons can be affected. Earlier diagnostics are in LOOPBACK-CONTINUITY.json.",
+    "8x interpolation is an estimate, not certified BS.1770 true-peak metering.",
+    "The quiet-to-loud event is real but its impact type was not independently verified."
+  ],
+  "checks": 90,
+  "cases": [
+    {
+      "class": "heavy-sub",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.181125,
+      "alignment_lag_ms": 5.625,
+      "estimated_overlap_start_in_excerpt_seconds": 0.4231666666666667,
+      "raw_capture_lufs": {
+        "processed": -13.385833053604257,
+        "original_plus_limiter": -13.521915961788428
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.3479497501329762,
+        "original_plus_limiter": -0.21186684194880406
+      },
+      "matched_lufs": {
+        "processed": -13.733782429400625,
+        "original_plus_limiter": -13.733782592402532
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -2.788560660472493,
+        "original_plus_limiter": -2.7881331580511963
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": -0.04586310260578028,
+        "80-180Hz": 0.2395641661764962,
+        "300-3000Hz": -0.1525895101261612
+      },
+      "aligned_mono_waveform_correlation": 0.9962626757756025,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      }
+    },
+    {
+      "class": "fast-kicks",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.19275,
+      "alignment_lag_ms": -0.6875,
+      "estimated_overlap_start_in_excerpt_seconds": 0.3999375,
+      "raw_capture_lufs": {
+        "processed": -11.334604330580513,
+        "original_plus_limiter": -11.437835331894766
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.3361336413686677,
+        "original_plus_limiter": -0.2329026400544146
+      },
+      "matched_lufs": {
+        "processed": -11.670737792247882,
+        "original_plus_limiter": -11.67073802993144
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -2.7725006021697767,
+        "original_plus_limiter": -2.7670973599455855
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": 0.12290115352606149,
+        "80-180Hz": 0.12901623385253236,
+        "300-3000Hz": -0.16895207477590754
+      },
+      "aligned_mono_waveform_correlation": 0.6138201852231358,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      }
+    },
+    {
+      "class": "bass-guitar",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.1927291666666666,
+      "alignment_lag_ms": 0.0,
+      "estimated_overlap_start_in_excerpt_seconds": 0.41158333333333336,
+      "raw_capture_lufs": {
+        "processed": -13.55964496844427,
+        "original_plus_limiter": -13.81168151046895
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.46282067006114563,
+        "original_plus_limiter": -0.2107841280364644
+      },
+      "matched_lufs": {
+        "processed": -14.02246577175921,
+        "original_plus_limiter": -14.022465435363053
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -2.7917522490433884,
+        "original_plus_limiter": -2.7892158719635356
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": 0.24792238988746937,
+        "80-180Hz": 0.20470192605489496,
+        "300-3000Hz": -0.22180937069684284
+      },
+      "aligned_mono_waveform_correlation": 0.998119345218599,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      }
+    },
+    {
+      "class": "soft-romantic",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.175479166666667,
+      "alignment_lag_ms": 19.083333333333336,
+      "estimated_overlap_start_in_excerpt_seconds": 0.39991666666666664,
+      "raw_capture_lufs": {
+        "processed": -16.269220940197783,
+        "original_plus_limiter": -16.567629371335425
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.2984084311376415,
+        "original_plus_limiter": 0.0
+      },
+      "matched_lufs": {
+        "processed": -16.567629611500255,
+        "original_plus_limiter": -16.567629371335425
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -6.44462614567301,
+        "original_plus_limiter": -6.690381969273846
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": 0.9741135552293677,
+        "80-180Hz": 0.20489861192650405,
+        "300-3000Hz": -0.09572644029451607
+      },
+      "aligned_mono_waveform_correlation": 0.7729824445410617,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      }
+    },
+    {
+      "class": "orchestral",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.19275,
+      "alignment_lag_ms": 0.0,
+      "estimated_overlap_start_in_excerpt_seconds": 0.41158333333333336,
+      "raw_capture_lufs": {
+        "processed": -17.220728589302528,
+        "original_plus_limiter": -17.49294692145453
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.2722183321520006,
+        "original_plus_limiter": 0.0
+      },
+      "matched_lufs": {
+        "processed": -17.492946978222065,
+        "original_plus_limiter": -17.49294692145453
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -2.985802737512795,
+        "original_plus_limiter": -3.3993002065782223
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": 0.35953174444756314,
+        "80-180Hz": 0.45701787030282237,
+        "300-3000Hz": -0.15182295041716581
+      },
+      "aligned_mono_waveform_correlation": 0.9976274629725249,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      }
+    },
+    {
+      "class": "film-explosion",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.1927291666666666,
+      "alignment_lag_ms": 0.0,
+      "estimated_overlap_start_in_excerpt_seconds": 0.41158333333333336,
+      "raw_capture_lufs": {
+        "processed": -9.846860402878633,
+        "original_plus_limiter": -9.804670677192222
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.2456286680908826,
+        "original_plus_limiter": -0.2878183937772938
+      },
+      "matched_lufs": {
+        "processed": -10.092488986796356,
+        "original_plus_limiter": -10.0924891812228
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -2.7543713319091174,
+        "original_plus_limiter": -2.743648939755565
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": 0.2896964862158273,
+        "80-180Hz": 0.358303507085983,
+        "300-3000Hz": -0.04922823545120723
+      },
+      "aligned_mono_waveform_correlation": 0.9947974346604275,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      }
+    },
+    {
+      "class": "film-dialogue",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.1927291666666666,
+      "alignment_lag_ms": 0.0,
+      "estimated_overlap_start_in_excerpt_seconds": 0.41158333333333336,
+      "raw_capture_lufs": {
+        "processed": -16.47582996384718,
+        "original_plus_limiter": -16.479577518570665
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.22320830939410735,
+        "original_plus_limiter": -0.21946075467062193
+      },
+      "matched_lufs": {
+        "processed": -16.699038254999248,
+        "original_plus_limiter": -16.69903853105119
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -2.7767916906058927,
+        "original_plus_limiter": -2.7950407189141213
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": 0.4473514935833173,
+        "80-180Hz": 0.545630580520367,
+        "300-3000Hz": -0.09901057804868069
+      },
+      "aligned_mono_waveform_correlation": 0.9264934415197936,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      }
+    },
+    {
+      "class": "quiet-to-loud",
+      "browser_context_sample_rate": 44100,
+      "loopback_rate": 48000,
+      "matched_overlap_seconds": 3.19275,
+      "alignment_lag_ms": 0.0,
+      "estimated_overlap_start_in_excerpt_seconds": 0.41158333333333336,
+      "raw_capture_lufs": {
+        "processed": -20.763567753713165,
+        "original_plus_limiter": -20.98997668491985
+      },
+      "constant_gain_db_to_match": {
+        "processed": -0.3041564622831449,
+        "original_plus_limiter": -0.07774753107646076
+      },
+      "matched_lufs": {
+        "processed": -21.067724022772733,
+        "original_plus_limiter": -21.06772420055174
+      },
+      "8x_peak_estimate_before_matching_dbfs": {
+        "processed": -2.8043573094023073,
+        "original_plus_limiter": -2.922252468923539
+      },
+      "matched_band_difference_db_processed_minus_original_plus_limiter": {
+        "20-80Hz": 0.20117681409964197,
+        "80-180Hz": 0.44410470453476225,
+        "300-3000Hz": -0.13454946233171494
+      },
+      "aligned_mono_waveform_correlation": 0.9718033742860159,
+      "near_full_scale_samples": {
+        "processed": 0,
+        "original_plus_limiter": 0
+      },
+      "loud_vs_quiet_contrast_dB": {
+        "processed": 12.490962853697829,
+        "original_plus_limiter": 12.512541182302307
+      },
+      "quiet_loud_window_seconds": {
+        "quiet": 2.088416666666667,
+        "loud": 0.6043333333333333
+      }
+    }
+  ]
+}

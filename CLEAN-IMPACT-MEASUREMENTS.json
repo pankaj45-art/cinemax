@@ -1,0 +1,445 @@
+{
+  "method": "Offline 48 kHz float render through JS; constant attenuation for equal BS.1770 integrated loudness; independent 8x polyphase peak estimate.",
+  "limitations": [
+    "No human or physical headphone listening.",
+    "The quiet-to-loud source event was not independently verified as an impact.",
+    "Genre labels and visual inspection do not establish subjective sound quality.",
+    "The 8x peak estimate is not a certified true-peak reading.",
+    "The tests do not establish Windows real-time performance or driver behaviour.",
+    "The two DnB source tracks are ND-licensed and are not redistributed with the app."
+  ],
+  "shared_parameters": {
+    "profile": "headphone",
+    "mode": 0,
+    "bass": 0.5,
+    "sub": 0.35,
+    "punch": 0.45,
+    "woofer": 0.5,
+    "depth": 0.5,
+    "lowvol": 0.15,
+    "dynamics": 0.9,
+    "dialogue": 0.35,
+    "surround": 0.25,
+    "spatial": 0.1,
+    "ambience": 0,
+    "outputGain": 0
+  },
+  "source_decoder": "ffmpeg pcm_f32le, stereo, 48 kHz",
+  "loudness_target": "minimum measured LUFS, with additional common attenuation for <= -3 dB estimated 8x peak",
+  "cases": [
+    {
+      "class": "heavy-sub",
+      "description": "Shivaxi & Xenofish, Tesla Bass (In Your Face), 190 BPM, Ektoplazm CC BY-NC-ND 4.0; private measurement only",
+      "offset_s": 65,
+      "duration_s": 15,
+      "raw_lufs": {
+        "source": -11.568388870749372,
+        "clean": -12.967820151956333,
+        "legacy": -16.113985860338644
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": -0.005548617165627152,
+        "clean": -2.7252233308474407,
+        "legacy": -4.97957077821037
+      },
+      "raw_sample_peak_dBFS": {
+        "source": -0.1251488891920934,
+        "clean": -2.799705983234382,
+        "legacy": -4.985349982777244
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": -4.545596989589272,
+        "clean": -3.1461657083823114,
+        "legacy": 0.0
+      },
+      "matched_lufs": -16.113985860338644,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": -0.1510001558138911,
+          "legacy": 1.181735796541542
+        },
+        "80-180Hz": {
+          "clean": 0.1521366341287803,
+          "legacy": -1.1314135239464682
+        },
+        "300-3000Hz": {
+          "clean": 0.0034731066542549893,
+          "legacy": -2.121641015992814
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9948148082394649,
+        "legacy": 0.17542423447130487
+      },
+      "LR_correlation": {
+        "source": 0.8743200243399587,
+        "clean": 0.8723012383482767,
+        "legacy": 0.9032927034451331
+      }
+    },
+    {
+      "class": "fast-kicks",
+      "description": "Shivaxi & Xenofish, End Times, 180 BPM, Ektoplazm CC BY-NC-ND 4.0; private measurement only",
+      "offset_s": 65,
+      "duration_s": 15,
+      "raw_lufs": {
+        "source": -9.585041718604636,
+        "clean": -11.305723217585816,
+        "legacy": -15.856667842735979
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": 0.3907544896507291,
+        "clean": -2.7634401327121614,
+        "legacy": -4.665942942162929
+      },
+      "raw_sample_peak_dBFS": {
+        "source": 0.32188182872816096,
+        "clean": -2.7995780658580314,
+        "legacy": -4.985149621683059
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": -6.271626124131343,
+        "clean": -4.550944625150163,
+        "legacy": 0.0
+      },
+      "matched_lufs": -15.856667842735979,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": 0.4647262631479816,
+          "legacy": 1.9056897346522859
+        },
+        "80-180Hz": {
+          "clean": 0.2535149518414074,
+          "legacy": -0.8330141261833566
+        },
+        "300-3000Hz": {
+          "clean": -0.25204096581002255,
+          "legacy": -2.122491893285262
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9947437450107334,
+        "legacy": 0.1886317553302592
+      },
+      "LR_correlation": {
+        "source": 0.7164358906051,
+        "clean": 0.6904308844526594,
+        "legacy": 0.9309530117155166
+      }
+    },
+    {
+      "class": "bass-guitar",
+      "description": "Kevin MacLeod, Pyro Flow; artist identifies Rickenbacker bass; CC BY 3.0",
+      "offset_s": 45,
+      "duration_s": 15,
+      "raw_lufs": {
+        "source": -12.052434478608658,
+        "clean": -13.33562332344393,
+        "legacy": -14.643046419746197
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": 0.04944203420279825,
+        "clean": -2.7851669136245656,
+        "legacy": -4.65679980825347
+      },
+      "raw_sample_peak_dBFS": {
+        "source": 0.026801321852189176,
+        "clean": -2.7995244697519777,
+        "legacy": -4.985497039732287
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": -3.049442034202799,
+        "clean": -1.7662531893675277,
+        "legacy": -0.4588300930652601
+      },
+      "matched_lufs": -15.101876512811456,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": 0.81860303438159,
+          "legacy": 3.1009246646277804
+        },
+        "80-180Hz": {
+          "clean": 0.5478060365133411,
+          "legacy": 0.4436693805902714
+        },
+        "300-3000Hz": {
+          "clean": -0.4891358980497178,
+          "legacy": -1.3744298792591416
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9904434806035505,
+        "legacy": -0.055196590268028284
+      },
+      "LR_correlation": {
+        "source": 0.9062502889097074,
+        "clean": 0.9058251248522065,
+        "legacy": 0.9309859507506854
+      }
+    },
+    {
+      "class": "soft-romantic",
+      "description": "Kevin MacLeod, Love Song; soft instrumental, not vocals; CC BY 3.0",
+      "offset_s": 45,
+      "duration_s": 15,
+      "raw_lufs": {
+        "source": -15.622060563763158,
+        "clean": -15.456138893922601,
+        "legacy": -15.874273160368103
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": -2.5172783894285606,
+        "clean": -2.796506470749584,
+        "legacy": -4.979359528800354
+      },
+      "raw_sample_peak_dBFS": {
+        "source": -2.5230572375074685,
+        "clean": -2.802285456775648,
+        "legacy": -4.985138592766209
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": -0.48272161057144014,
+        "clean": -0.648643280411997,
+        "legacy": -0.23050901396649473
+      },
+      "matched_lufs": -16.1047821743346,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": 0.38373517737796914,
+          "legacy": 2.3348160252203316
+        },
+        "80-180Hz": {
+          "clean": 0.35889629766452097,
+          "legacy": 1.7232562902995927
+        },
+        "300-3000Hz": {
+          "clean": -0.08829204217363024,
+          "legacy": -0.2988781587710342
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9996555632453762,
+        "legacy": 0.19040284960355233
+      },
+      "LR_correlation": {
+        "source": 0.8004020593357953,
+        "clean": 0.7986582830243161,
+        "legacy": 0.7925023021056321
+      }
+    },
+    {
+      "class": "orchestral",
+      "description": "Brahms Hungarian Dance No. 5, US Army Strings; public domain per source metadata",
+      "offset_s": 5,
+      "duration_s": 18,
+      "raw_lufs": {
+        "source": -17.99925567209608,
+        "clean": -17.757710671042425,
+        "legacy": -16.506872339556473
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": -3.181914168862783,
+        "clean": -2.9116684143673917,
+        "legacy": -4.930265163615335
+      },
+      "raw_sample_peak_dBFS": {
+        "source": -3.2110753656613533,
+        "clean": -2.9380162645634185,
+        "legacy": -4.985138592766209
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": 0.0,
+        "clean": -0.24154500105365548,
+        "legacy": -1.4923833325396072
+      },
+      "matched_lufs": -17.99925567209608,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": 0.3950586516292327,
+          "legacy": 2.15714988838016
+        },
+        "80-180Hz": {
+          "clean": 0.5017561056821285,
+          "legacy": 0.1911124792879224
+        },
+        "300-3000Hz": {
+          "clean": -0.11189816278121517,
+          "legacy": -0.1304211469986321
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9994332256493437,
+        "legacy": 0.5972534677901025
+      },
+      "LR_correlation": {
+        "source": 0.6953861669896163,
+        "clean": 0.6940560234134515,
+        "legacy": 0.7511314779076638
+      }
+    },
+    {
+      "class": "film-explosion",
+      "description": "Tears of Steel soundtrack passage near a visual collapse; audio/frame sync and whether it is an explosion are unverified; CC BY 3.0",
+      "offset_s": 494,
+      "duration_s": 14,
+      "raw_lufs": {
+        "source": -6.704284952558778,
+        "clean": -10.24074164828439,
+        "legacy": -14.960501667822745
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": 4.573792116002752,
+        "clean": -2.5741111351911443,
+        "legacy": -4.435019613822143
+      },
+      "raw_sample_peak_dBFS": {
+        "source": 3.1472323853320985,
+        "clean": -2.7995630589150005,
+        "legacy": -4.985151459837228
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": -8.256216715263967,
+        "clean": -4.719760019538356,
+        "legacy": 0.0
+      },
+      "matched_lufs": -14.960501667822745,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": 0.5314301014901586,
+          "legacy": 0.7679476189653147
+        },
+        "80-180Hz": {
+          "clean": 0.5447604728388048,
+          "legacy": -2.341953089524492
+        },
+        "300-3000Hz": {
+          "clean": 0.03862735152371135,
+          "legacy": -1.4434793431332693
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9902994794438356,
+        "legacy": 0.427769251226591
+      },
+      "LR_correlation": {
+        "source": 0.4650161503025744,
+        "clean": 0.4441717521665163,
+        "legacy": 0.6388434893062829
+      }
+    },
+    {
+      "class": "film-dialogue",
+      "description": "Tears of Steel; English subtitles 4:59\u20135:28; CC BY 3.0",
+      "offset_s": 299,
+      "duration_s": 25,
+      "raw_lufs": {
+        "source": -19.700893519169536,
+        "clean": -19.84166365133501,
+        "legacy": -19.128682237854555
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": -0.2843404142094932,
+        "clean": -2.7548746688655172,
+        "legacy": -2.8308609490719796
+      },
+      "raw_sample_peak_dBFS": {
+        "source": -0.31919093962849227,
+        "clean": -2.819198579435027,
+        "legacy": -4.985138592766209
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": -2.7156595857905073,
+        "clean": -2.5748894536250324,
+        "legacy": -3.287870867105489
+      },
+      "matched_lufs": -22.416553104960045,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": 0.4362376455858219,
+          "legacy": -1.0637871396222522
+        },
+        "80-180Hz": {
+          "clean": 0.685577707962058,
+          "legacy": 0.06521582276915291
+        },
+        "300-3000Hz": {
+          "clean": -0.5311634342365542,
+          "legacy": -0.6698156584138479
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9626663846406686,
+        "legacy": 0.34077335207825227
+      },
+      "LR_correlation": {
+        "source": 0.19892858705849195,
+        "clean": 0.1174736041333093,
+        "legacy": 0.6536786190430783
+      }
+    },
+    {
+      "class": "quiet-to-loud",
+      "description": "Tears of Steel 6:53\u20137:05; quiet into loud event near 6:56.3; impact type not independently verified",
+      "offset_s": 413,
+      "duration_s": 12,
+      "raw_lufs": {
+        "source": -16.85911501301536,
+        "clean": -17.823124821456762,
+        "legacy": -17.469213311120715
+      },
+      "estimated_8x_peak_dBFS": {
+        "source": 0.559847822479679,
+        "clean": -2.79401655376359,
+        "legacy": -4.179822102640769
+      },
+      "raw_sample_peak_dBFS": {
+        "source": 0.5513374610228187,
+        "clean": -2.799795312128277,
+        "legacy": -4.985138592766209
+      },
+      "clean_near_clamped_samples": 0,
+      "constant_gain_dB_to_match": {
+        "source": -3.55984782247968,
+        "clean": -2.595838014038276,
+        "legacy": -2.9497495243743233
+      },
+      "matched_lufs": -20.418962835495037,
+      "matched_band_change_dB_vs_source": {
+        "20-80Hz": {
+          "clean": 0.44230810557492173,
+          "legacy": 0.8981772074158623
+        },
+        "80-180Hz": {
+          "clean": 0.12049217424834371,
+          "legacy": -1.778761270654579
+        },
+        "300-3000Hz": {
+          "clean": -0.2425853617756944,
+          "legacy": -1.5201487002897183
+        }
+      },
+      "mono_waveform_correlation_vs_source": {
+        "clean": 0.9889006884437274,
+        "legacy": 0.4516665408569763
+      },
+      "LR_correlation": {
+        "source": 0.21676582522717386,
+        "clean": 0.2696649169410526,
+        "legacy": 0.9204305206386553
+      },
+      "loud_to_quiet_rms_contrast_dB": {
+        "source": 13.111765974427172,
+        "clean": 12.938129459189785,
+        "legacy": 14.256062325628998
+      }
+    }
+  ],
+  "elapsed_seconds": 25.58563447100005
+}

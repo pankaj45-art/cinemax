@@ -1,0 +1,19 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>CINEMAX-AUDIO-SOURCE-TEST</title>
+<h1>Local synthetic browser-tab source for CINEMAX tests</h1>
+<p>Generates continuous stereo tones locally; no network media or credentials.</p>
+<button id="play">Start test signal</button>
+<script>
+  document.querySelector('#play').onclick = async () => {
+    if (window.ctx) return;
+    const ctx=window.ctx=new AudioContext();
+    const merger=ctx.createChannelMerger(2); merger.connect(ctx.destination);
+    for (const [ch, freq, gain] of [[0,137,.17],[0,1300,.08],[1,193,.14],[1,1100,.06]]) {
+      const osc=ctx.createOscillator(), level=ctx.createGain();
+      osc.frequency.value=freq; level.gain.value=gain;
+      osc.connect(level); level.connect(merger,0,ch); osc.start();
+    }
+    await ctx.resume(); document.title='CINEMAX-AUDIO-SOURCE-TEST';
+  };
+</script>

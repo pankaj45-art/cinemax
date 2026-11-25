@@ -1,0 +1,684 @@
+{
+  "standaloneSha256": "856a06179d6a6fb60d1ab42ee134e2e4373babcdab31ae56819e0dcafd33e96c",
+  "coreSha256": "a81ca37f2e942fb49b259b0873a6366c5cc2c8033a3ce05007db2973b3540060",
+  "environment": "Linux, Xvfb, headed Chromium, PulseAudio 48 kHz virtual sink. No Windows or physical headphones.",
+  "method": "Source-correlate high-passed 250 ms 48 kHz windows; retain correlation >0.80; flag offset changes exceeding 10 samples between retained windows. Captures are finite, possibly short, and do not establish wall-time or acoustic continuity.",
+  "limitations": [
+    "Only captures/windows examined; unmatched windows, non-time-shift distortion, perceptual crackle and later device behavior can be missed.",
+    "Recorder startup, host scheduling, browser, virtual sink and other components may all affect findings. No physical listening occurred.",
+    "The 100/250 ms values are latencyHint requests; browser-reported baseLatency is not an end-to-end measurement.",
+    "The codec checks used an earlier 100 ms candidate before the selectable buffer and keyboard guard. They used the same optimized core and loop fade, but not the exact final page. No test used the user's unknown file."
+  ],
+  "datasets": [
+    {
+      "label": "Final standalone, fast kicks, 100 ms requested, file: launch",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 5.282375,
+          "wallSeconds": 6.004,
+          "samplePeak": 0.726929,
+          "medianCorrelation": 0.958698,
+          "reliableWindows": 20,
+          "totalWindows": 21,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 755,
+            "lastChunkMs": 5944,
+            "maxGapMs": 103,
+            "chunks": 52
+          },
+          "browserClock": {
+            "audioSeconds": 5.282539682539682,
+            "browserWallSeconds": 6.006700000000186
+          }
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 5.990292,
+          "wallSeconds": 6.004,
+          "samplePeak": 0.725861,
+          "medianCorrelation": 0.965752,
+          "reliableWindows": 23,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 7,
+            "lastChunkMs": 5907,
+            "maxGapMs": 102,
+            "chunks": 60
+          },
+          "browserClock": {
+            "audioSeconds": 6.0778231292517,
+            "browserWallSeconds": 6.012200000000186
+          }
+        },
+        {
+          "trial": 2,
+          "mode": "original",
+          "capturedSeconds": 6.001229,
+          "wallSeconds": 6.004,
+          "samplePeak": 0.726654,
+          "medianCorrelation": 0.975096,
+          "reliableWindows": 24,
+          "totalWindows": 24,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 21,
+            "lastChunkMs": 5921,
+            "maxGapMs": 102,
+            "chunks": 98
+          },
+          "browserClock": {
+            "audioSeconds": 5.993650793650794,
+            "browserWallSeconds": 6.013599999999627
+          }
+        },
+        {
+          "trial": 2,
+          "mode": "enhanced",
+          "capturedSeconds": 5.870292,
+          "wallSeconds": 6.003,
+          "samplePeak": 0.726257,
+          "medianCorrelation": 0.961079,
+          "reliableWindows": 23,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 102,
+            "lastChunkMs": 5900,
+            "maxGapMs": 102,
+            "chunks": 91
+          },
+          "browserClock": {
+            "audioSeconds": 6.095238095238096,
+            "browserWallSeconds": 6.007900000000372
+          }
+        }
+      ]
+    },
+    {
+      "label": "Final standalone, fast kicks, 250 ms requested, file: launch",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 5.932375,
+          "wallSeconds": 6.002,
+          "samplePeak": 0.726257,
+          "medianCorrelation": 0.969022,
+          "reliableWindows": 20,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 185.76,
+          "monitorArrival": {
+            "firstChunkMs": 203,
+            "lastChunkMs": 5966,
+            "maxGapMs": 186,
+            "chunks": 63
+          },
+          "browserClock": {
+            "audioSeconds": 5.758548752834468,
+            "browserWallSeconds": 6.005100000000559
+          }
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 5.925958,
+          "wallSeconds": 6.003,
+          "samplePeak": 0.725433,
+          "medianCorrelation": 0.998259,
+          "reliableWindows": 22,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 185.76,
+          "monitorArrival": {
+            "firstChunkMs": 55,
+            "lastChunkMs": 5820,
+            "maxGapMs": 189,
+            "chunks": 63
+          },
+          "browserClock": {
+            "audioSeconds": 5.758548752834467,
+            "browserWallSeconds": 6.004799999999814
+          }
+        },
+        {
+          "trial": 2,
+          "mode": "original",
+          "capturedSeconds": 5.928792,
+          "wallSeconds": 6.002,
+          "samplePeak": 0.725891,
+          "medianCorrelation": 0.98378,
+          "reliableWindows": 22,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 185.76,
+          "monitorArrival": {
+            "firstChunkMs": 63,
+            "lastChunkMs": 5828,
+            "maxGapMs": 186,
+            "chunks": 65
+          },
+          "browserClock": {
+            "audioSeconds": 5.944308390022676,
+            "browserWallSeconds": 6.009599999999628
+          }
+        },
+        {
+          "trial": 2,
+          "mode": "enhanced",
+          "capturedSeconds": 5.932542,
+          "wallSeconds": 6.003,
+          "samplePeak": 0.726044,
+          "medianCorrelation": 0.994789,
+          "reliableWindows": 22,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 185.76,
+          "monitorArrival": {
+            "firstChunkMs": 57,
+            "lastChunkMs": 5826,
+            "maxGapMs": 190,
+            "chunks": 63
+          },
+          "browserClock": {
+            "audioSeconds": 5.944308390022676,
+            "browserWallSeconds": 6.005
+          }
+        }
+      ]
+    },
+    {
+      "label": "Previous delivered build, fast kicks, one trial each including native media element",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "direct",
+          "capturedSeconds": 6.780042,
+          "wallSeconds": 7.004,
+          "samplePeak": 1,
+          "medianCorrelation": 0.997635,
+          "reliableWindows": 26,
+          "totalWindows": 27,
+          "offsetJumpsOver10Samples": []
+        },
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 7.004271,
+          "wallSeconds": 7.008,
+          "samplePeak": 0.726471,
+          "medianCorrelation": 0.980417,
+          "reliableWindows": 28,
+          "totalWindows": 28,
+          "offsetJumpsOver10Samples": [
+            {
+              "between_s": [
+                4.25,
+                4.5
+              ],
+              "offset_delta_samples": -160,
+              "offset_delta_ms": -3.3333333333333335
+            }
+          ]
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 7.000813,
+          "wallSeconds": 7.006,
+          "samplePeak": 0.725464,
+          "medianCorrelation": 0.983153,
+          "reliableWindows": 28,
+          "totalWindows": 28,
+          "offsetJumpsOver10Samples": []
+        }
+      ]
+    },
+    {
+      "label": "Previous delivered build, fast kicks, two further trials each",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 5.99075,
+          "wallSeconds": 6.004,
+          "samplePeak": 0.726349,
+          "medianCorrelation": 0.983235,
+          "reliableWindows": 23,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 11.61
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 5.99075,
+          "wallSeconds": 6.004,
+          "samplePeak": 0.725616,
+          "medianCorrelation": 0.982794,
+          "reliableWindows": 23,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 11.61
+        },
+        {
+          "trial": 2,
+          "mode": "original",
+          "capturedSeconds": 5.99075,
+          "wallSeconds": 6.002,
+          "samplePeak": 0.726044,
+          "medianCorrelation": 0.995588,
+          "reliableWindows": 23,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 11.61
+        },
+        {
+          "trial": 2,
+          "mode": "enhanced",
+          "capturedSeconds": 5.99075,
+          "wallSeconds": 6.005,
+          "samplePeak": 0.725739,
+          "medianCorrelation": 0.988386,
+          "reliableWindows": 23,
+          "totalWindows": 23,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 11.61
+        }
+      ]
+    },
+    {
+      "label": "Synthetic WAV; instrumented monitor and source clock; prior page label",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "direct",
+          "capturedSeconds": 2.588146,
+          "wallSeconds": 4.007,
+          "samplePeak": 0.329895,
+          "medianCorrelation": 0.994596,
+          "reliableWindows": 9,
+          "totalWindows": 10,
+          "offsetJumpsOver10Samples": [],
+          "monitorArrival": {
+            "firstChunkMs": 1422,
+            "lastChunkMs": 3991,
+            "maxGapMs": 26,
+            "chunks": 114
+          },
+          "browserClock": {
+            "audioSeconds": 2.512061,
+            "browserWallSeconds": 4.009400000000372
+          }
+        },
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 3.976062,
+          "wallSeconds": 4.003,
+          "samplePeak": 0.393036,
+          "medianCorrelation": 0.999862,
+          "reliableWindows": 15,
+          "totalWindows": 15,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 18,
+            "lastChunkMs": 3917,
+            "maxGapMs": 102,
+            "chunks": 160
+          },
+          "browserClock": {
+            "audioSeconds": 3.961904761904762,
+            "browserWallSeconds": 4.005100000000559
+          }
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 3.456396,
+          "wallSeconds": 4.003,
+          "samplePeak": 0.402771,
+          "medianCorrelation": 0.999587,
+          "reliableWindows": 13,
+          "totalWindows": 13,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 626,
+            "lastChunkMs": 3984,
+            "maxGapMs": 105,
+            "chunks": 54
+          },
+          "browserClock": {
+            "audioSeconds": 4.063492063492063,
+            "browserWallSeconds": 4.005400000000373
+          }
+        },
+        {
+          "trial": 2,
+          "mode": "direct",
+          "capturedSeconds": 3.984604,
+          "wallSeconds": 4.003,
+          "samplePeak": 0.390045,
+          "medianCorrelation": 0.994606,
+          "reliableWindows": 15,
+          "totalWindows": 15,
+          "offsetJumpsOver10Samples": [],
+          "monitorArrival": {
+            "firstChunkMs": 24,
+            "lastChunkMs": 3990,
+            "maxGapMs": 24,
+            "chunks": 180
+          },
+          "browserClock": {
+            "audioSeconds": 4.010248,
+            "browserWallSeconds": 4.0057000000001866
+          }
+        },
+        {
+          "trial": 2,
+          "mode": "original",
+          "capturedSeconds": 4.011896,
+          "wallSeconds": 4.003,
+          "samplePeak": 0.391144,
+          "medianCorrelation": 0.985471,
+          "reliableWindows": 16,
+          "totalWindows": 16,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 13,
+            "lastChunkMs": 3955,
+            "maxGapMs": 102,
+            "chunks": 162
+          },
+          "browserClock": {
+            "audioSeconds": 4.063492063492063,
+            "browserWallSeconds": 4.01
+          }
+        },
+        {
+          "trial": 2,
+          "mode": "enhanced",
+          "capturedSeconds": 3.933104,
+          "wallSeconds": 4.005,
+          "samplePeak": 0.397552,
+          "medianCorrelation": 0.974915,
+          "reliableWindows": 15,
+          "totalWindows": 15,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587,
+          "monitorArrival": {
+            "firstChunkMs": 103,
+            "lastChunkMs": 3969,
+            "maxGapMs": 102,
+            "chunks": 56
+          },
+          "browserClock": {
+            "audioSeconds": 4.063492063492063,
+            "browserWallSeconds": 4.007299999999813
+          }
+        }
+      ]
+    },
+    {
+      "label": "Synthetic WAV, one prior-page trial per mode, uninstrumented monitor",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 3.250625,
+          "wallSeconds": 4.005,
+          "samplePeak": 0.37088,
+          "medianCorrelation": 0.91221,
+          "reliableWindows": 12,
+          "totalWindows": 13,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 3.94875,
+          "wallSeconds": 4.005,
+          "samplePeak": 0.402802,
+          "medianCorrelation": 0.997095,
+          "reliableWindows": 15,
+          "totalWindows": 15,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587
+        }
+      ]
+    },
+    {
+      "label": "Synthetic MP3, one prior-page trial per mode, uninstrumented monitor",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 3.656979,
+          "wallSeconds": 4.004,
+          "samplePeak": 0.358734,
+          "medianCorrelation": 0.911488,
+          "reliableWindows": 13,
+          "totalWindows": 14,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 4.067292,
+          "wallSeconds": 4.005,
+          "samplePeak": 0.372314,
+          "medianCorrelation": 0.962916,
+          "reliableWindows": 16,
+          "totalWindows": 16,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587
+        }
+      ]
+    },
+    {
+      "label": "Synthetic M4A, one prior-page trial per mode, uninstrumented monitor",
+      "results": [
+        {
+          "trial": 1,
+          "mode": "original",
+          "capturedSeconds": 3.453792,
+          "wallSeconds": 4.004,
+          "samplePeak": 0.365631,
+          "medianCorrelation": 0.88862,
+          "reliableWindows": 12,
+          "totalWindows": 13,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587
+        },
+        {
+          "trial": 1,
+          "mode": "enhanced",
+          "capturedSeconds": 3.941604,
+          "wallSeconds": 4.003,
+          "samplePeak": 0.378876,
+          "medianCorrelation": 0.916998,
+          "reliableWindows": 15,
+          "totalWindows": 15,
+          "offsetJumpsOver10Samples": [],
+          "reportedBaseLatencyMs": 101.587
+        }
+      ]
+    }
+  ],
+  "earlierBaseline": {
+    "details": "docs/LOOPBACK-CONTINUITY.json",
+    "processedOffsetDeltaSamples": -66,
+    "originalLimiterOffsetDeltaSamples": -595,
+    "note": "Separate earlier localhost runs of the previous candidate; source/cause unresolved."
+  },
+  "workletProfiles": {
+    "previous": {
+      "label": "old",
+      "method": "Date.now in Chrome AudioWorklet; 1 ms coarse bins, deterministic signal, warm first 200 blocks",
+      "results": [
+        {
+          "sampleRate": 44100,
+          "block": 128,
+          "samples": 2000,
+          "totalMs": 187,
+          "maxMs": 1,
+          "bins": [
+            1813,
+            187,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "enhanced",
+          "meanMs": 0.0935,
+          "deadlineMs": 2.9024943310657596
+        },
+        {
+          "sampleRate": 44100,
+          "block": 128,
+          "samples": 2000,
+          "totalMs": 180,
+          "maxMs": 1,
+          "bins": [
+            1820,
+            180,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "original + limiter",
+          "meanMs": 0.09,
+          "deadlineMs": 2.9024943310657596
+        }
+      ]
+    },
+    "candidate": {
+      "label": "optimized-unroll",
+      "method": "Date.now in Chrome AudioWorklet; 1 ms coarse bins, deterministic signal, warm first 200 blocks",
+      "results": [
+        {
+          "sampleRate": 44100,
+          "block": 128,
+          "samples": 2000,
+          "totalMs": 131,
+          "maxMs": 1,
+          "bins": [
+            1869,
+            131,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "enhanced",
+          "meanMs": 0.0655,
+          "deadlineMs": 2.9024943310657596
+        },
+        {
+          "sampleRate": 44100,
+          "block": 128,
+          "samples": 2000,
+          "totalMs": 136,
+          "maxMs": 7,
+          "bins": [
+            1870,
+            129,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "mode": "original + limiter",
+          "meanMs": 0.068,
+          "deadlineMs": 2.9024943310657596
+        }
+      ]
+    },
+    "warning": "Coarse Date.now timing in one host per core. Candidate original+limiter recorded one 7 ms block; not a Windows real-time benchmark."
+  },
+  "loopSeamOfflineRamp": {
+    "sampleRate": 48000,
+    "fadeFrames": 480,
+    "beforeJump": 1.0,
+    "afterJump": 0.0004885196685791016,
+    "note": "Synthetic ramp; in-memory final 10 ms is changed, on-disk file is not."
+  },
+  "syntheticFixtureSha256": "6e5d5716100a007cbc8baae54dc61493a6af7f6b7b81e5cff48f31cdecff3522",
+  "redistribution": "Source audio and raw captures are not included; no modified ND-licensed excerpt is redistributed."
+}
